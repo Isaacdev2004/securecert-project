@@ -1,16 +1,9 @@
 "use client";
 
 import { Suspense } from "react";
-import { StitchRenderer } from "@/components/StitchRenderer";
-import { html, bodyClass } from "@/content/screens/institution-credential-detail";
+import { CredentialDetailView } from "@/components/institution/CredentialDetailView";
 
-function CredentialDetailInner() {
-  return (
-    <StitchRenderer html={html} bodyClass={bodyClass} shell="institution" />
-  );
-}
-
-export default function Page() {
+export default function CredentialDetailPage() {
   return (
     <Suspense
       fallback={
@@ -19,7 +12,7 @@ export default function Page() {
         </main>
       }
     >
-      <CredentialDetailInner />
+      <CredentialDetailView />
     </Suspense>
   );
 }

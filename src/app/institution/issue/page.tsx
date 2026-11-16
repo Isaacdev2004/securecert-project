@@ -1,8 +1,7 @@
-'use client';
+"use client";
 
-import { StitchRenderer } from "@/components/StitchRenderer";
-import { html, bodyClass } from "@/content/screens/institution-issue";
+import { IssueView } from "@/components/institution/IssueView";
 
-export default function Page() {
-  return <StitchRenderer html={html} bodyClass={bodyClass} shell="institution" />;
+export default function IssuePage() {
+  return <IssueView />;
 }

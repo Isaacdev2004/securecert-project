@@ -1,8 +1,7 @@
-'use client';
+"use client";
 
-import { StitchRenderer } from "@/components/StitchRenderer";
-import { html, bodyClass } from "@/content/screens/institution-revocations";
+import { RevocationsView } from "@/components/institution/RevocationsView";
 
-export default function Page() {
-  return <StitchRenderer html={html} bodyClass={bodyClass} shell="institution" />;
+export default function RevocationsPage() {
+  return <RevocationsView />;
 }
