@@ -1,0 +1,257 @@
+{
+  "screens": [
+    {
+      "name": "home",
+      "route": "/",
+      "shell": "public",
+      "folder": "securecert_sovereign_credential_verification_platform"
+    },
+    {
+      "name": "architecture",
+      "route": "/architecture",
+      "shell": "public",
+      "folder": "securecert_platform_architecture_cryptographic_rigor"
+    },
+    {
+      "name": "developers",
+      "route": "/developers",
+      "shell": "public",
+      "folder": "securecert_developer_apis_interactive_documentation"
+    },
+    {
+      "name": "verify",
+      "route": "/verify",
+      "shell": "public",
+      "folder": "securecert_verify_a_credential_portal"
+    },
+    {
+      "name": "verify-result",
+      "route": "/verify/result",
+      "shell": "blank",
+      "folder": "securecert_public_credential_verification_portal"
+    },
+    {
+      "name": "wholesale",
+      "route": "/wholesale",
+      "shell": "public",
+      "folder": "securecert_wholesale_economics_margin_calculator"
+    },
+    {
+      "name": "partners",
+      "route": "/partners",
+      "shell": "public",
+      "folder": "securecert_institutions_sis_partners_ecosystem"
+    },
+    {
+      "name": "onboarding",
+      "route": "/onboarding",
+      "shell": "public",
+      "folder": "securecert_enterprise_onboarding_registrar_briefing"
+    },
+    {
+      "name": "institution-dashboard",
+      "route": "/institution/dashboard",
+      "shell": "institution",
+      "folder": "securecert_institutional_overview_dashboard"
+    },
+    {
+      "name": "institution-credentials",
+      "route": "/institution/credentials",
+      "shell": "institution",
+      "folder": "securecert_credential_records_verification_registry"
+    },
+    {
+      "name": "institution-credential-detail",
+      "route": "/institution/credentials/[id]",
+      "shell": "institution",
+      "folder": "securecert_candidate_record_detail_cryptographic_merkle_audit"
+    },
+    {
+      "name": "institution-recipients",
+      "route": "/institution/recipients",
+      "shell": "institution",
+      "folder": "securecert_recipients_candidates_directory"
+    },
+    {
+      "name": "institution-issue",
+      "route": "/institution/issue",
+      "shell": "institution",
+      "folder": "securecert_issue_register_credential"
+    },
+    {
+      "name": "institution-bulk",
+      "route": "/institution/bulk",
+      "shell": "institution",
+      "folder": "securecert_bulk_processing_ingestion_pipeline"
+    },
+    {
+      "name": "institution-designer",
+      "route": "/institution/designer",
+      "shell": "institution",
+      "folder": "securecert_certificate_designer_studio"
+    },
+    {
+      "name": "institution-integrations",
+      "route": "/institution/integrations",
+      "shell": "institution",
+      "folder": "securecert_integration_ecosystem_hub"
+    },
+    {
+      "name": "institution-reports",
+      "route": "/institution/reports",
+      "shell": "institution",
+      "folder": "securecert_accreditation_reports_statutory_export_dossiers"
+    },
+    {
+      "name": "institution-revocations",
+      "route": "/institution/revocations",
+      "shell": "institution",
+      "folder": "securecert_revocations_tamper_invalidation_registry"
+    },
+    {
+      "name": "institution-team",
+      "route": "/institution/team",
+      "shell": "institution",
+      "folder": "securecert_team_role_permissions"
+    },
+    {
+      "name": "partner-overview",
+      "route": "/partner",
+      "shell": "partner",
+      "folder": "securecert_partner_vendor_overview_operations_hub"
+    },
+    {
+      "name": "partner-schools",
+      "route": "/partner/schools",
+      "shell": "partner",
+      "folder": "securecert_partner_connected_client_schools_tenancies"
+    },
+    {
+      "name": "partner-apikeys",
+      "route": "/partner/apikeys",
+      "shell": "partner",
+      "folder": "securecert_partner_api_keys_oauth_2.0_credentials"
+    },
+    {
+      "name": "partner-webhooks",
+      "route": "/partner/webhooks",
+      "shell": "partner",
+      "folder": "securecert_partner_webhook_subscriptions_event_dispatch"
+    },
+    {
+      "name": "partner-mapping",
+      "route": "/partner/mapping",
+      "shell": "partner",
+      "folder": "securecert_partner_sis_erp_field_mapping_schema_transformer"
+    },
+    {
+      "name": "partner-customizer",
+      "route": "/partner/customizer",
+      "shell": "partner",
+      "folder": "securecert_partner_white_label_verification_portal_customizer"
+    },
+    {
+      "name": "partner-billing",
+      "route": "/partner/billing",
+      "shell": "partner",
+      "folder": "securecert_partner_reseller_invoicing_wholesale_commission_settlement"
+    },
+    {
+      "name": "partner-sandbox",
+      "route": "/partner/sandbox",
+      "shell": "partner",
+      "folder": "securecert_partner_sandbox_simulation_testbed"
+    },
+    {
+      "name": "partner-logs",
+      "route": "/partner/logs",
+      "shell": "partner",
+      "folder": "securecert_partner_logs_live_telemetry"
+    },
+    {
+      "name": "admin-tenants",
+      "route": "/admin/tenants",
+      "shell": "admin",
+      "folder": "securecert_super_admin_global_tenant_domain_governance"
+    },
+    {
+      "name": "admin-shards",
+      "route": "/admin/shards",
+      "shell": "admin",
+      "folder": "securecert_super_admin_multi_tenant_health_shard_governance"
+    },
+    {
+      "name": "admin-hsm",
+      "route": "/admin/hsm",
+      "shell": "admin",
+      "folder": "securecert_super_admin_hsm_root_signers_cryptographic_enclaves"
+    },
+    {
+      "name": "admin-tariffs",
+      "route": "/admin/tariffs",
+      "shell": "admin",
+      "folder": "securecert_super_admin_wholesale_tariffs_global_quotas"
+    },
+    {
+      "name": "verifier",
+      "route": "/verifier",
+      "shell": "verifier",
+      "folder": "securecert_verifier_portal_batch_single_verification_desk"
+    },
+    {
+      "name": "passport-wallet",
+      "route": "/passport",
+      "shell": "passport",
+      "folder": "securecert_passport_student_sovereign_wallet"
+    },
+    {
+      "name": "passport-vault",
+      "route": "/passport/vault",
+      "shell": "passport",
+      "folder": "securecert_passport_credentials_vault"
+    },
+    {
+      "name": "passport-credential",
+      "route": "/passport/credential",
+      "shell": "passport",
+      "folder": "securecert_passport_credential_detail_digital_parchment"
+    },
+    {
+      "name": "passport-share",
+      "route": "/passport/share",
+      "shell": "passport",
+      "folder": "securecert_passport_selective_disclosure_share"
+    },
+    {
+      "name": "passport-activity",
+      "route": "/passport/activity",
+      "shell": "passport",
+      "folder": "securecert_passport_activity_security_audit"
+    }
+  ],
+  "pathMap": {
+    "interactive-verifier": "/verify",
+    "platform-architecture": "/architecture",
+    "institutions-and-sis-partners": "/partners",
+    "developer-apis": "/developers",
+    "wholesale-economics": "/wholesale",
+    "book-enterprise-onboarding": "/onboarding",
+    "overview-dashboard": "/institution/dashboard",
+    "credentials-records": "/institution/credentials",
+    "issue-register": "/institution/issue",
+    "bulk-processing": "/institution/bulk",
+    "certificate-designer": "/institution/designer",
+    "recipients-candidates": "/institution/recipients",
+    "integrations-connectors": "/institution/integrations",
+    "api-keys-oauth-apps": "/partner/apikeys",
+    "webhooks-event-streams": "/partner/webhooks",
+    "request-logs-telemetry": "/partner/logs",
+    "field-mapping-schemas": "/partner/mapping",
+    "verification-activity": "/verifier",
+    "revocations-audit-logs": "/institution/revocations",
+    "reports-data-exports": "/institution/reports",
+    "organization-profile-branding": "/institution/dashboard",
+    "team-role-permissions": "/institution/team",
+    "partner-reseller-portal": "/partner"
+  }
+}
