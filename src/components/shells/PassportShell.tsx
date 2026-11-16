@@ -14,7 +14,7 @@ const TABS = [
 
 export function PassportShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const headerRef = useRef<HTMLElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     // no-op placeholder for future header wiring
