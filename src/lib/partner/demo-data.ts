@@ -14,7 +14,7 @@ import type {
   WhiteLabelConfig,
 } from "./types";
 
-export const STORAGE_KEY = "securecert.partner.demo";
+export const STORAGE_KEY = "legitscan.partner.demo";
 
 export const SEED_SCHOOLS: PartnerSchool[] = [
   {
@@ -155,7 +155,7 @@ export const SEED_WEBHOOKS: PartnerWebhook[] = [
   {
     id: "wh-1",
     name: "EduNova Prod",
-    url: "https://api.edunova.io/v2/webhooks/securecert/events",
+    url: "https://api.edunova.io/v2/webhooks/legitscan/events",
     events: ["credential.anchored", "credential.revoked", "batch.completed"],
     secretMasked: "whsec_••••a91f",
     status: "ACTIVE",
@@ -165,7 +165,7 @@ export const SEED_WEBHOOKS: PartnerWebhook[] = [
   {
     id: "wh-2",
     name: "UNILAG Senate",
-    url: "https://senate.unilag.edu.ng/hooks/securecert",
+    url: "https://senate.unilag.edu.ng/hooks/legitscan",
     events: ["credential.anchored", "billing.invoice_settled"],
     secretMasked: "whsec_••••c220",
     status: "ACTIVE",
@@ -175,7 +175,7 @@ export const SEED_WEBHOOKS: PartnerWebhook[] = [
   {
     id: "wh-3",
     name: "Moodle OpenBadge",
-    url: "https://lms.partner.ng/badges/securecert",
+    url: "https://lms.partner.ng/badges/legitscan",
     events: ["credential.anchored"],
     secretMasked: "whsec_••••11bb",
     status: "DEGRADED",
@@ -388,7 +388,7 @@ export const SEED_LOGS: LogEvent[] = [
     school: "EduNova Gateway",
     connector: "gRPC",
     method: "Invoke",
-    path: "securecert.v1.Ingest/Anchor",
+    path: "legitscan.v1.Ingest/Anchor",
     status: 200,
     latencyMs: 12,
     detail: "Adewale Babatunde Adeleke · B.Sc ECE 4.82",

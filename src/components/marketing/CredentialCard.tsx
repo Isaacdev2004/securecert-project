@@ -13,7 +13,7 @@ export function CredentialCard() {
           <div className="flex items-start justify-between gap-3">
             <div>
               <p className="text-[11px] font-bold tracking-[0.14em] uppercase text-[#0f766e]">
-                Verified credential
+                Verified record
               </p>
               <p className="mt-1 text-[12px] text-gray-500">University of Lagos</p>
             </div>

@@ -58,7 +58,7 @@ function PortalShellInner({ shell, children }: Props) {
       const resolved = resolveStitchPath(shell, dataPath);
       if (!resolved) return;
       anchor.setAttribute("href", resolved);
-      anchor.setAttribute("data-securecert-resolved", resolved);
+      anchor.setAttribute("data-legitscan-resolved", resolved);
 
       const key = hrefKey(resolved);
       if (seen.has(key)) {
@@ -87,7 +87,7 @@ function PortalShellInner({ shell, children }: Props) {
       if (!anchor || !root.contains(anchor)) return;
 
       const next =
-        anchor.getAttribute("data-securecert-resolved") ||
+        anchor.getAttribute("data-legitscan-resolved") ||
         resolveStitchPath(shell, anchor.getAttribute("data-path"));
       if (!next || next.startsWith("http")) return;
       event.preventDefault();
@@ -155,7 +155,7 @@ function PortalShellInner({ shell, children }: Props) {
 
     aside.querySelectorAll("a[data-path]").forEach((anchor) => {
       if (anchor.getAttribute("data-nav-duplicate") === "true") return;
-      const href = anchor.getAttribute("data-securecert-resolved") || "";
+      const href = anchor.getAttribute("data-legitscan-resolved") || "";
       const active = isActiveHref(href);
 
       if (active) anchor.setAttribute("aria-current", "page");

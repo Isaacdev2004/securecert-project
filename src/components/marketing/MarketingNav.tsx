@@ -23,12 +23,12 @@ export function MarketingNav() {
         href="/architecture"
         className="block bg-[#134e4a] text-white text-center text-[13px] sm:text-[14px] font-medium py-2.5 px-4 hover:bg-[#0f766e] transition-colors"
       >
-        National Ledger brief: how universities issue &amp; embassies verify in
-        under a second →
+        LegitScan: credentials, government records &amp; product authenticity —
+        verify in under a second →
       </Link>
 
       <div className="mx-auto max-w-[1200px] px-5 md:px-8 h-[72px] flex items-center justify-between gap-4">
-        <Link href="/" className="flex items-center shrink-0" aria-label="SecureCert home">
+        <Link href="/" className="flex items-center shrink-0" aria-label="LegitScan home">
           <BrandLogo height={36} />
         </Link>
 
@@ -97,7 +97,7 @@ export function MarketingNav() {
             onClick={() => setOpen(false)}
             className="py-3 text-[15px] font-medium text-gray-800"
           >
-            Verify a credential
+            Verify a record
           </Link>
           <Link
             href="/login"

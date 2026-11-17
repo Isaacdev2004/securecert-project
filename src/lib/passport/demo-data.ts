@@ -5,7 +5,7 @@ import type {
   ShareLink,
 } from "./types";
 
-export const STORAGE_KEY = "securecert.passport.demo";
+export const STORAGE_KEY = "legitscan.passport.demo";
 
 export const SEED_CREDENTIALS: PassportCredential[] = [
   {
@@ -14,7 +14,7 @@ export const SEED_CREDENTIALS: PassportCredential[] = [
     issuer: "University of Lagos",
     classification: "First Class Honours",
     matricNumber: "180407044",
-    did: "did:securecert:unilag:180407044",
+    did: "did:legitscan:unilag:180407044",
     status: "ACTIVE",
     issuedAt: "2024-11-12T10:22:00.000Z",
     merkleRoot: "0x9af28c1e…a91f",
@@ -25,7 +25,7 @@ export const SEED_CREDENTIALS: PassportCredential[] = [
     issuer: "National Youth Service Corps",
     classification: "Completed",
     matricNumber: "NYSC/LA/24/12345",
-    did: "did:securecert:nysc:la2412345",
+    did: "did:legitscan:nysc:la2412345",
     status: "ACTIVE",
     issuedAt: "2025-08-01T09:00:00.000Z",
     merkleRoot: "0x44de91…c02a",
@@ -36,7 +36,7 @@ export const SEED_CREDENTIALS: PassportCredential[] = [
     issuer: "WAEC",
     classification: "6 Distinctions",
     matricNumber: "4123456789",
-    did: "did:securecert:waec:4123456789",
+    did: "did:legitscan:waec:4123456789",
     status: "ACTIVE",
     issuedAt: "2018-08-20T12:00:00.000Z",
     merkleRoot: "0xbb18f0…de44",

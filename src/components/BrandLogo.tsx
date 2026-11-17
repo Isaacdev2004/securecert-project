@@ -8,14 +8,14 @@ type Props = {
   compact?: boolean;
 };
 
-/** Official SecureCert wordmark + shield. */
+/** Official LegitScan wordmark + shield. */
 export function BrandLogo({ height = 36, className = "", compact = false }: Props) {
   const h = compact ? Math.min(height, 32) : height;
   return (
     <Image
-      src="/brand/securecert-logo.jpg"
-      alt="SecureCert"
-      width={Math.round(h * 3.2)}
+      src="/brand/legitscan-logo.png"
+      alt="LegitScan"
+      width={Math.round(h * 3.6)}
       height={h}
       className={`object-contain object-left ${className}`.trim()}
       style={{ height: h, width: "auto" }}

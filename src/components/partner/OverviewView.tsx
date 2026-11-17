@@ -284,7 +284,7 @@ export function OverviewView() {
               </div>
               <p className="font-body-sm text-body-sm text-on-surface-variant">
                 Tier-1 response SLA 4 business hours · dedicated TAM Engr. D.
-                Adeleke · escalation desk partners@securecert.ng
+                Adeleke · escalation desk partners@legitscan.ng
               </p>
             </div>
           )}

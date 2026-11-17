@@ -24,7 +24,7 @@ export default function VerifyPage() {
       const data = await res.json();
       if (data.result === "VALID") {
         sessionStorage.setItem(
-          "securecert.lastVerify",
+          "legitscan.lastVerify",
           JSON.stringify(data.credential),
         );
         router.push("/verify/result");
@@ -43,7 +43,7 @@ export default function VerifyPage() {
       <PageIntro
         eyebrow="Public verify"
         title="Confirm authenticity in seconds."
-        lede="Enter a DID, matric number, or nonce. No account required for a single lookup."
+        lede="Enter a DID, reference ID, serial, or nonce for a credential, official record, or product mark. No account required for a single lookup."
       />
 
       <section className="bg-gray-50">
@@ -54,7 +54,7 @@ export default function VerifyPage() {
           >
             <label className="block">
               <span className="text-[13px] font-bold text-gray-700">
-                DID · Matric · Nonce
+                DID · ID · Serial · Nonce
               </span>
               <input
                 value={query}

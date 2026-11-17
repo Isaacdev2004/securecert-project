@@ -1,6 +1,8 @@
-# SecureCert
+# LegitScan
 
-End-to-end sovereign credential platform: Next.js App Router frontend + Supabase (Auth, Postgres, RLS). UI screens are ported from Google Stitch wireframes and wired to the routing / role map.
+Digital credential, official-record, and product authenticity platform — issue, manage, store, and verify certificates, government documents, and products.
+
+Stack: Next.js App Router frontend + Supabase (Auth, Postgres, RLS). Interactive portal demos are wired for walkthroughs before the live backend.
 
 ## Quick start (demo mode)
 
@@ -20,7 +22,7 @@ Open [http://localhost:3000](http://localhost:3000). No Supabase keys required f
 | Partner | `ops@edusoft.ng` |
 | Verifier | `consular@wes.org` |
 | Student | `babatunde@student.unilag.edu.ng` |
-| Super Admin | `root@securecert.ng` |
+| Super Admin | `root@legitscan.ng` |
 
 Use **/login** or the floating **Demo session** role switcher.
 

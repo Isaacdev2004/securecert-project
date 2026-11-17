@@ -210,7 +210,7 @@ function LoginForm() {
       )}
 
       <div className="mt-8 rounded-2xl border border-dashed border-gray-200 bg-white/70 p-5 text-center">
-        <p className="text-[14px] text-gray-600">New to SecureCert?</p>
+        <p className="text-[14px] text-gray-600">New to LegitScan?</p>
         <div className="mt-3 flex flex-col sm:flex-row gap-2 justify-center">
           <Link href="/signup" className="marketing-btn-secondary !h-10">
             Create an account

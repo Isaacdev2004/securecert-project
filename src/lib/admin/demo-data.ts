@@ -12,7 +12,7 @@ import type {
   TariffTier,
 } from "./types";
 
-export const STORAGE_KEY = "securecert.admin.demo";
+export const STORAGE_KEY = "legitscan.admin.demo";
 
 export const SEED_TENANTS: AdminTenant[] = [
   {
@@ -295,7 +295,7 @@ export const SEED_CUSTODIANS: CeremonyCustodian[] = [
   {
     id: "cu-1",
     name: "Dr. H. Ibrahim",
-    org: "SecureCert Trust Office",
+    org: "LegitScan Trust Office",
     tokenId: "YK-9941",
     state: "ARMED",
   },
@@ -429,7 +429,7 @@ export const SEED_CLEARING: ClearingSplit[] = [
   { id: "cl-1", label: "Institutions", amountNgn: 92400000, pct: 64.7 },
   { id: "cl-2", label: "NUC", amountNgn: 7140000, pct: 5.0 },
   { id: "cl-3", label: "NBTE", amountNgn: 2860000, pct: 2.0 },
-  { id: "cl-4", label: "SecureCert HSM", amountNgn: 40400000, pct: 28.3 },
+  { id: "cl-4", label: "LegitScan HSM", amountNgn: 40400000, pct: 28.3 },
 ];
 
 export const SEED_EVENTS: GovernanceEvent[] = [

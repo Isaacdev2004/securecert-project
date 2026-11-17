@@ -61,7 +61,7 @@ export function SandboxView() {
             Sandbox Simulation Runner
           </h1>
           <p className="font-body-md text-body-md text-on-surface-variant mt-0.5">
-            SANDBOX TESTNET v2.4-ephem · node-sandbox.securecert.io · quota 842k/1M
+            SANDBOX TESTNET v2.4-ephem · node-sandbox.legitscan.io · quota 842k/1M
           </p>
         </div>
         <div className="flex gap-2">

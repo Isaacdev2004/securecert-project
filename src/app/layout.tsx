@@ -24,16 +24,16 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "SecureCert — Sovereign Credential Platform",
+  title: "LegitScan — Verify · Authenticate · Trust",
   description:
-    "Tamper-proof academic & professional credential issuance, verification, and passport infrastructure.",
+    "Digital credential, official-record, and product authenticity platform — issue, manage, store, and verify certificates, government documents, and products.",
   icons: {
     icon: [
-      { url: "/brand/securecert-mark.png", type: "image/png", sizes: "32x32" },
-      { url: "/brand/securecert-mark.png", type: "image/png", sizes: "180x180" },
+      { url: "/brand/legitscan-mark.png", type: "image/png", sizes: "32x32" },
+      { url: "/brand/legitscan-mark.png", type: "image/png", sizes: "180x180" },
     ],
-    apple: [{ url: "/brand/securecert-mark.png", type: "image/png", sizes: "180x180" }],
-    shortcut: "/brand/securecert-mark.png",
+    apple: [{ url: "/brand/legitscan-mark.png", type: "image/png", sizes: "180x180" }],
+    shortcut: "/brand/legitscan-mark.png",
   },
 };
 

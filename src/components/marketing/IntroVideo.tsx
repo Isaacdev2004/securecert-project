@@ -5,15 +5,15 @@ import { Icon } from "@/components/marketing/Icon";
 
 /**
  * How to go live:
- * 1. Drop the file at public/videos/securecert-intro.mp4
- * 2. Optional poster: public/videos/securecert-intro-poster.jpg
+ * 1. Drop the file at public/videos/legitscan-intro.mp4
+ * 2. Optional poster: public/videos/legitscan-intro-poster.jpg
  * 3. Set ready: true below
  *
  * Or paste a YouTube/Vimeo embed URL into embedUrl (ready can stay false).
  */
 export const INTRO_VIDEO = {
   ready: true,
-  src: "/videos/securecert-intro.mp4",
+  src: "/videos/legitscan-intro.mp4",
   /** Optional cover image before play. */
   poster: "" as string,
   embedUrl: "" as string,
@@ -32,11 +32,11 @@ export function IntroVideo() {
             Watch
           </p>
           <h2 className="marketing-display mt-3 text-[clamp(1.85rem,3.5vw,2.75rem)] text-gray-950">
-            See SecureCert in two minutes
+            See LegitScan in two minutes
           </h2>
           <p className="mt-4 text-[16px] md:text-[17px] leading-relaxed text-gray-600">
-            A short walkthrough of how universities issue, graduates share, and
-            embassies verify on one national ledger.
+            A short walkthrough of how organisations issue credentials, documents,
+            and product marks — and how anyone authorised verifies authenticity.
           </p>
         </div>
 
@@ -46,7 +46,7 @@ export function IntroVideo() {
 
             {useEmbed ? (
               <iframe
-                title="SecureCert introductory video"
+                title="LegitScan introductory video"
                 src={INTRO_VIDEO.embedUrl}
                 className="absolute inset-0 h-full w-full"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -87,7 +87,7 @@ export function IntroVideo() {
                     className="group mx-auto flex h-16 w-16 md:h-20 md:w-20 items-center justify-center rounded-full bg-white text-[#0f766e] shadow-lg transition-transform hover:scale-105 disabled:cursor-default"
                     aria-label={
                       canPlay
-                        ? "Play SecureCert intro video"
+                        ? "Play LegitScan intro video"
                         : "Intro video coming soon"
                     }
                   >
@@ -99,7 +99,7 @@ export function IntroVideo() {
                       : "Introductory video coming soon"}
                   </p>
                   <p className="mt-1.5 text-[13px] text-white/65 max-w-sm mx-auto">
-                    Issue → passport → embassy verify
+                    Issue → share → verify anywhere
                   </p>
                 </div>
               </div>

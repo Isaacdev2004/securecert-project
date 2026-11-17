@@ -11,8 +11,8 @@ type Props = {
 
 export function AuthShell({
   children,
-  panelTitle = "National Ledger access",
-  panelBody = "Issue, hold, and verify tamper-proof credentials across universities, SIS partners, and embassy desks.",
+  panelTitle = "LegitScan access",
+  panelBody = "Issue, hold, and verify credentials, official records, and product authenticity marks across issuers, partners, and verifier desks.",
   panelBullets = [
     "Role-based portals for every stakeholder",
     "Demo accounts ready in one click",
@@ -23,7 +23,7 @@ export function AuthShell({
     <div className="marketing-root min-h-screen bg-gray-50 flex flex-col">
       <header className="border-b border-gray-100 bg-white">
         <div className="mx-auto max-w-[1200px] px-5 md:px-8 h-16 flex items-center justify-between gap-4">
-          <Link href="/" className="flex items-center" aria-label="SecureCert home">
+          <Link href="/" className="flex items-center" aria-label="LegitScan home">
             <BrandLogo height={34} />
           </Link>
 
@@ -43,7 +43,7 @@ export function AuthShell({
           <div className="absolute -left-10 bottom-10 h-40 w-40 rounded-full bg-teal-400/20 blur-3xl" />
           <div className="relative">
             <p className="text-[12px] font-bold tracking-[0.16em] uppercase text-teal-300">
-              SecureCert
+              LegitScan
             </p>
             <h2 className="mt-4 text-[2rem] font-extrabold tracking-tight leading-tight">
               {panelTitle}

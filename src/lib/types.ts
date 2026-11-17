@@ -48,7 +48,7 @@ export const DEMO_USERS: DemoUser[] = [
   },
   {
     id: "demo-admin",
-    email: "root@securecert.ng",
+    email: "root@legitscan.ng",
     password: "demo1234",
     fullName: "Platform Operator",
     role: "SUPER_ADMIN",

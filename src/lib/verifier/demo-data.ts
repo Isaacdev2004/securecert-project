@@ -10,7 +10,7 @@ import type {
   VerifierDemoState,
 } from "./types";
 
-export const STORAGE_KEY = "securecert.verifier.demo";
+export const STORAGE_KEY = "legitscan.verifier.demo";
 
 export const SEED_UNIVERSITIES: IssuingUniversity[] = [
   { code: "UNILAG", name: "University of Lagos (UNILAG)", hsmLabel: "UNILAG-HSM-ROOT-04" },
@@ -37,7 +37,7 @@ export const SEED_CASES: VerificationCase[] = [
     purpose: "VISA",
     consentStatus: "ACTIVE",
     cryptoStatus: "MATCH",
-    did: "did:securecert:ng:unilag:grad:2024:08194",
+    did: "did:legitscan:ng:unilag:grad:2024:08194",
     merkleRoot: "0x82b4a1…31fc",
     blockRef: "SEN-2024-Q3-0812",
     attested: true,
@@ -58,7 +58,7 @@ export const SEED_CASES: VerificationCase[] = [
     purpose: "WES",
     consentStatus: "BLINDED",
     cryptoStatus: "MERKLE_VALID",
-    did: "did:securecert:ng:ui:grad:2023:4821",
+    did: "did:legitscan:ng:ui:grad:2023:4821",
     merkleRoot: "0x11ae90…c4d2",
     blockRef: "UI-SEN-2023-8841",
     attested: true,
@@ -78,7 +78,7 @@ export const SEED_CASES: VerificationCase[] = [
     purpose: "WES",
     consentStatus: "ACTIVE",
     cryptoStatus: "ZK_OK",
-    did: "did:securecert:ng:abu:grad:2024:1021",
+    did: "did:legitscan:ng:abu:grad:2024:1021",
     merkleRoot: "0x55f0c2…9aa1",
     blockRef: "ABU-2024-T3-221",
     attested: true,
@@ -98,7 +98,7 @@ export const SEED_CASES: VerificationCase[] = [
     purpose: "CORPORATE",
     consentStatus: "ACTIVE",
     cryptoStatus: "MINISTRY_SEALED",
-    did: "did:securecert:ng:unn:grad:2022:184422",
+    did: "did:legitscan:ng:unn:grad:2022:184422",
     merkleRoot: "0x90bb12…eef0",
     blockRef: "UNN-LAW-2022-091",
     attested: true,
@@ -118,7 +118,7 @@ export const SEED_CASES: VerificationCase[] = [
     purpose: "EXCEPTION",
     consentStatus: "REVOKED",
     cryptoStatus: "BLOCKED",
-    did: "did:securecert:ng:oau:grad:2021:00912",
+    did: "did:legitscan:ng:oau:grad:2021:00912",
     merkleRoot: "0xdead00…rev1",
     blockRef: "OAU-REV-2025-014",
     attested: false,

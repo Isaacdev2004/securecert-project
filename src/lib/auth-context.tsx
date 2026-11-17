@@ -16,7 +16,7 @@ import {
 } from "@/lib/types";
 import { ROLE_HOME } from "@/lib/path-map";
 
-const DEMO_STORAGE_KEY = "securecert.demo.session";
+const DEMO_STORAGE_KEY = "legitscan.demo.session";
 
 type AuthContextValue = {
   user: SessionUser | null;

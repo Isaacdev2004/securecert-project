@@ -18,7 +18,7 @@ export default function VerifyResultPage() {
 
   useEffect(() => {
     try {
-      const raw = sessionStorage.getItem("securecert.lastVerify");
+      const raw = sessionStorage.getItem("legitscan.lastVerify");
       if (raw) setCredential(JSON.parse(raw) as Credential);
     } catch {
       setCredential(null);

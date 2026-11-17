@@ -28,7 +28,7 @@ const META: Record<
     statuses: [{ label: "Gateway 99.99%" }, { label: "18ms mean" }],
   },
   admin: {
-    org: "SecureCert Root Governance",
+    org: "LegitScan Root Governance",
     eyebrow: "Zone-0 · Master console",
     search: "Search tenants, shards, keys…",
     statuses: [{ label: "HSM online" }, { label: "Clusters healthy" }],

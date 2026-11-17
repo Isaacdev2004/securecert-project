@@ -14,8 +14,8 @@ const DEMO_LEDGER: Record<
     matric: string;
   }
 > = {
-  "did:securecert:unilag:180407044": {
-    did: "did:securecert:unilag:180407044",
+  "did:legitscan:unilag:180407044": {
+    did: "did:legitscan:unilag:180407044",
     status: "VALID",
     holder: "Babatunde Adeleke Emmanuel",
     title: "B.Eng. Electrical & Electronics Engineering — First Class",
@@ -24,7 +24,7 @@ const DEMO_LEDGER: Record<
     matric: "180407044",
   },
   "180407044": {
-    did: "did:securecert:unilag:180407044",
+    did: "did:legitscan:unilag:180407044",
     status: "VALID",
     holder: "Babatunde Adeleke Emmanuel",
     title: "B.Eng. Electrical & Electronics Engineering — First Class",

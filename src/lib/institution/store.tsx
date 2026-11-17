@@ -48,7 +48,7 @@ type InstitutionStoreValue = {
   revokeApiKey: (id: string) => void;
   toggleWebhook: (id: string) => void;
   addWebhook: (url: string, events: string[]) => void;
-  updateMapping: (id: string, sisField: string, securecertField: string) => void;
+  updateMapping: (id: string, sisField: string, legitscanField: string) => void;
 };
 
 const InstitutionStoreContext = createContext<InstitutionStoreValue | null>(
@@ -395,11 +395,11 @@ export function InstitutionStoreProvider({ children }: { children: ReactNode }) 
   }, []);
 
   const updateMapping = useCallback(
-    (id: string, sisField: string, securecertField: string) => {
+    (id: string, sisField: string, legitscanField: string) => {
       setState((prev) => ({
         ...prev,
         fieldMappings: prev.fieldMappings.map((m) =>
-          m.id === id ? { ...m, sisField, securecertField } : m,
+          m.id === id ? { ...m, sisField, legitscanField } : m,
         ),
       }));
     },

@@ -55,7 +55,7 @@ export default function DevelopersPage() {
             </p>
             <pre className="mt-5 overflow-x-auto font-mono text-[12px] leading-relaxed text-teal-50/80">
 {`POST /v1/verify
-{ "did": "did:securecert:unilag:180407044" }
+{ "did": "did:legitscan:unilag:180407044" }
 
 → status: VALID
 → merkle: verified

@@ -73,7 +73,7 @@ export function StitchRenderer({
       const next = resolveHref(anchor, activeShell);
       if (next && next.startsWith("/")) {
         anchor.setAttribute("href", next);
-        anchor.setAttribute("data-securecert-resolved", next);
+        anchor.setAttribute("data-legitscan-resolved", next);
       }
     });
 
@@ -83,7 +83,7 @@ export function StitchRenderer({
       if (!anchor || !host.contains(anchor)) return;
 
       const resolved =
-        anchor.getAttribute("data-securecert-resolved") ||
+        anchor.getAttribute("data-legitscan-resolved") ||
         resolveHref(anchor, activeShell);
       if (!resolved || resolved.startsWith("http")) return;
 
@@ -144,7 +144,7 @@ export function StitchRenderer({
           const data = await res.json();
           if (data.result === "VALID") {
             sessionStorage.setItem(
-              "securecert.lastVerify",
+              "legitscan.lastVerify",
               JSON.stringify(data.credential),
             );
             router.push("/verify/result");

@@ -1,9 +1,17 @@
 import fs from "fs";
 import sharp from "sharp";
 
-/** Build shield-only PNG icons from the official SecureCert wordmark. */
-const src = "public/brand/securecert-logo.jpg";
-const extract = { left: 30, top: 35, width: 255, height: 270 };
+/** Build shield-only PNG icons from the official LegitScan wordmark. */
+const src = "public/brand/legitscan-logo.png";
+const meta = await sharp(src).metadata();
+const w = meta.width ?? 1024;
+const h = meta.height ?? 341;
+const extract = {
+  left: 0,
+  top: 0,
+  width: Math.min(Math.round(h * 1.05), w),
+  height: h,
+};
 
 const base = sharp(src)
   .extract(extract)
@@ -13,7 +21,7 @@ const base = sharp(src)
   })
   .ensureAlpha();
 
-await base.clone().png().toFile("public/brand/securecert-mark.png");
+await base.clone().png().toFile("public/brand/legitscan-mark.png");
 await base.clone().resize(32, 32).png().toFile("src/app/icon.png");
 await base.clone().resize(180, 180).png().toFile("src/app/apple-icon.png");
 await base.clone().resize(32, 32).png().toFile("public/favicon.png");
@@ -27,4 +35,4 @@ for (const p of [
   if (fs.existsSync(p)) fs.unlinkSync(p);
 }
 
-console.log("brand icons ready");
+console.log("LegitScan brand icons ready");

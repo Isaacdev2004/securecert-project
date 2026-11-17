@@ -15,12 +15,12 @@ const STATS: Stat[] = [
     end: 1.4,
     decimals: 1,
     suffix: "M+",
-    label: "Digital credentials issued and verified",
+    label: "Credentials, records & product marks verified",
   },
   {
     end: 142,
     suffix: "+",
-    label: "Institutional enclaves on the ledger",
+    label: "Issuer organisations on the network",
   },
   {
     end: 0,
@@ -105,7 +105,7 @@ export function StatsCounters() {
       <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_20%_20%,#5eead4,transparent_40%),radial-gradient(circle_at_80%_80%,#0f766e,transparent_40%)]" />
       <div className="relative mx-auto max-w-[1200px] px-5 md:px-8 py-16 md:py-24">
         <p className="text-center text-[15px] font-medium text-teal-100/90">
-          SecureCert is powering national credential trust
+          LegitScan is powering authenticity across sectors
         </p>
         <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {STATS.map((stat) => (

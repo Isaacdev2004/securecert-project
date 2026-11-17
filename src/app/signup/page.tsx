@@ -74,7 +74,7 @@ export default function SignupPage() {
 
   return (
     <AuthShell
-      panelTitle="Create your SecureCert account"
+      panelTitle="Create your LegitScan account"
       panelBody="Start in the portal that matches your role. Enterprise provisioning still runs through a short briefing for production tenancies."
       panelBullets={[
         "Pick your persona and enter a demo workspace",
@@ -96,7 +96,7 @@ export default function SignupPage() {
         Sign up
       </h1>
       <p className="mt-2 text-[15px] text-gray-600">
-        Create an account to explore SecureCert. Already onboarded?{" "}
+        Create an account to explore LegitScan. Already onboarded?{" "}
         <Link href="/login" className="font-semibold text-[#0f766e] hover:underline">
           Sign in
         </Link>

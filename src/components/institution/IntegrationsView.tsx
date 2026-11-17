@@ -235,7 +235,7 @@ export function IntegrationsView() {
             <thead className="bg-surface-container-low/80 text-[11px] uppercase text-secondary">
               <tr>
                 <th className="px-5 py-3 font-bold">SIS field</th>
-                <th className="px-3 py-3 font-bold">SecureCert field</th>
+                <th className="px-3 py-3 font-bold">LegitScan field</th>
               </tr>
             </thead>
             <tbody>
@@ -245,14 +245,14 @@ export function IntegrationsView() {
                     <input
                       value={m.sisField}
                       onChange={(e) =>
-                        updateMapping(m.id, e.target.value, m.securecertField)
+                        updateMapping(m.id, e.target.value, m.legitscanField)
                       }
                       className="h-9 w-full rounded-lg border border-outline-variant/50 px-2 font-audit-mono text-[12px]"
                     />
                   </td>
                   <td className="px-3 py-3">
                     <input
-                      value={m.securecertField}
+                      value={m.legitscanField}
                       onChange={(e) =>
                         updateMapping(m.id, m.sisField, e.target.value)
                       }

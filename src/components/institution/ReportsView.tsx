@@ -43,7 +43,7 @@ export function ReportsView() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `securecert-credentials-${Date.now()}.csv`;
+    a.download = `legitscan-credentials-${Date.now()}.csv`;
     a.click();
     URL.revokeObjectURL(url);
     setToast("CSV export downloaded");

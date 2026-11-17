@@ -91,7 +91,7 @@ export function CustomizerView() {
             className="w-full rounded bg-surface-container-low px-3 py-2 focus:outline-none"
           />
           <p className="font-audit-mono text-audit-mono text-on-surface-variant">
-            CNAME → edge.securecert.io · TXT sc-token=9fa118be-… · CAA DigiCert/LE
+            CNAME → edge.legitscan.io · TXT sc-token=9fa118be-… · CAA DigiCert/LE
           </p>
         </div>
 

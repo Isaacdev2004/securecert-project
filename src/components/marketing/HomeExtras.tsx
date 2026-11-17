@@ -6,22 +6,22 @@ export function HowItWorks() {
     {
       n: "01",
       t: "Design & map",
-      d: "Brand your parchment, map SIS fields, and connect HSM custody for your tenancy.",
+      d: "Brand templates for credentials, documents, or products — then connect custody for your tenancy.",
     },
     {
       n: "02",
       t: "Issue at scale",
-      d: "Seal single records or graduating cohorts into the Merkle registry in one workflow.",
+      d: "Seal single records or bulk cohorts into the registry with cryptographic inclusion proofs.",
     },
     {
       n: "03",
-      t: "Graduate holds",
-      d: "Alumni unlock a passport with selective disclosure and instant share links.",
+      t: "Holders control",
+      d: "People and product owners share selective proofs via QR or link — and revoke in one tap.",
     },
     {
       n: "04",
       t: "World verifies",
-      d: "Embassies, WES, and employers resolve authenticity — proof in milliseconds.",
+      d: "Employers, agencies, customs, and consumers resolve authenticity in milliseconds.",
     },
   ];
 
@@ -33,7 +33,7 @@ export function HowItWorks() {
             How it works
           </p>
           <h2 className="marketing-display mt-3 text-[clamp(1.85rem,3.5vw,2.75rem)] text-gray-950">
-            From senate seal to embassy resolve
+            From issuance to instant authenticity
           </h2>
         </div>
 
@@ -67,14 +67,14 @@ export function TestimonialBand() {
       <div className="relative mx-auto max-w-[900px] px-5 md:px-8 py-20 md:py-24 text-center">
         <Icon name="format_quote" size={40} className="text-[#5eead4]" filled weight={600} />
         <blockquote className="mt-4 text-[clamp(1.25rem,2.5vw,1.85rem)] font-semibold leading-snug tracking-tight">
-          “SecureCert let us retire courier transcripts for high commissions.
-          Verification that used to take weeks now resolves before the officer
-          finishes the intake form.”
+          “LegitScan let us retire courier transcripts for high commissions —
+          and the same verify flow now protects our licensed product seals.
+          Authenticity that used to take weeks resolves before intake finishes.”
         </blockquote>
         <div className="mt-8 flex flex-col items-center gap-1">
           <p className="font-bold">Dr. A. Adeleke</p>
           <p className="text-[14px] text-white/60">
-            Institutional Registrar · Tier-1 University Node
+            Institutional Registrar · Tier-1 Issuer Node
           </p>
         </div>
       </div>
@@ -87,7 +87,7 @@ export function SecurityStrip() {
     { icon: "encrypted", t: "HSM root custody", d: "FIPS-oriented enclave signing" },
     { icon: "account_tree", t: "Merkle proofs", d: "Inclusion path on every record" },
     { icon: "visibility_off", t: "Selective disclosure", d: "Share proof, hide the rest" },
-    { icon: "gavel", t: "NDPA aligned", d: "Consent & audit by design" },
+    { icon: "gavel", t: "Audit-ready evidence", d: "Consent, revoke & verify logs" },
   ];
 
   return (
@@ -112,20 +112,20 @@ export function SecurityStrip() {
 export function FaqSection() {
   const faqs = [
     {
-      q: "Do we replace our SIS?",
-      a: "No. SecureCert maps Banner, PowerSchool, and custom ERPs into W3C credentials — your SIS stays the system of record.",
+      q: "Is LegitScan only for universities?",
+      a: "No. Education is one rail. The same platform supports government documents and approvals, plus product authenticity for brands and manufacturers.",
     },
     {
-      q: "How do embassies verify?",
-      a: "Public resolve for single lookups, or the verifier desk for batch WES / PESC / SEVIS style ingest with Merkle inspection.",
+      q: "How do people verify?",
+      a: "Public resolve for a single QR or code — no account required. Authorised desks handle batch employer, embassy, customs, and partner workflows.",
     },
     {
-      q: "What about student privacy?",
-      a: "Graduates control selective disclosure. Sensitive attributes stay blinded unless they grant access — with full ping audit.",
+      q: "What about privacy?",
+      a: "Holders control selective disclosure. Sensitive attributes stay blinded unless they grant access — with a full audit of every ping.",
     },
     {
       q: "Is cryptography optional?",
-      a: "No. Every issued credential is HSM-sealed and Merkle-anchored. Verification recomputes proof — it never trusts a portal screenshot.",
+      a: "No. Every issued record is sealed and Merkle-anchored. Verification recomputes proof — it never trusts a portal screenshot.",
     },
   ];
 
@@ -171,7 +171,7 @@ export function IntegrationsBand() {
     "PowerSchool",
     "PeopleSoft",
     "Custom ERP",
-    "PESC XML",
+    "Product SKU APIs",
     "W3C VC 2.0",
     "OAuth 2.0",
     "Webhooks",
@@ -181,11 +181,12 @@ export function IntegrationsBand() {
     <section className="bg-white">
       <div className="mx-auto max-w-[1200px] px-5 md:px-8 py-16 md:py-20 text-center">
         <h2 className="marketing-display text-[clamp(1.6rem,3vw,2.25rem)] text-gray-950">
-          Connect your favorite campus tools
+          Connect the systems you already run
         </h2>
         <p className="mt-3 text-[16px] text-gray-600 max-w-2xl mx-auto">
-          SecureCert plugs into the systems you already run — so issuance and
-          verification never require a rip-and-replace project.
+          LegitScan plugs into campus SIS, agency registries, and brand
+          catalogues — so issuance and verification never require a rip-and-replace
+          project.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           {tools.map((t) => (

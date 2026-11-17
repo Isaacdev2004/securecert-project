@@ -11,27 +11,27 @@ const parents = [
 
 const samples = {
   institution: [
-    "securecert_institutional_overview_dashboard",
-    "securecert_credential_records_verification_registry",
-    "securecert_team_role_permissions",
+    "legitscan_institutional_overview_dashboard",
+    "legitscan_credential_records_verification_registry",
+    "legitscan_team_role_permissions",
   ],
   partner: [
-    "securecert_partner_vendor_overview_operations_hub",
-    "securecert_partner_api_keys_oauth_2.0_credentials",
-    "securecert_partner_logs_live_telemetry",
+    "legitscan_partner_vendor_overview_operations_hub",
+    "legitscan_partner_api_keys_oauth_2.0_credentials",
+    "legitscan_partner_logs_live_telemetry",
   ],
   admin: [
-    "securecert_super_admin_global_tenant_domain_governance",
-    "securecert_super_admin_multi_tenant_health_shard_governance",
-    "securecert_super_admin_hsm_root_signers_cryptographic_enclaves",
-    "securecert_super_admin_wholesale_tariffs_global_quotas",
+    "legitscan_super_admin_global_tenant_domain_governance",
+    "legitscan_super_admin_multi_tenant_health_shard_governance",
+    "legitscan_super_admin_hsm_root_signers_cryptographic_enclaves",
+    "legitscan_super_admin_wholesale_tariffs_global_quotas",
   ],
-  verifier: ["securecert_verifier_portal_batch_single_verification_desk"],
+  verifier: ["legitscan_verifier_portal_batch_single_verification_desk"],
   passport: [
-    "securecert_passport_student_sovereign_wallet",
-    "securecert_passport_credentials_vault",
-    "securecert_passport_selective_disclosure_share",
-    "securecert_passport_activity_security_audit",
+    "legitscan_passport_student_sovereign_wallet",
+    "legitscan_passport_credentials_vault",
+    "legitscan_passport_selective_disclosure_share",
+    "legitscan_passport_activity_security_audit",
   ],
 };
 

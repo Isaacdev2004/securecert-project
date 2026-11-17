@@ -13,7 +13,7 @@ import type {
 
 const TENANT = "11111111-1111-1111-1111-111111111111";
 
-export const STORAGE_KEY = "securecert.institution.demo";
+export const STORAGE_KEY = "legitscan.institution.demo";
 
 export const SEED_RECIPIENTS: DemoRecipient[] = [
   {
@@ -62,7 +62,7 @@ export const SEED_CREDENTIALS: DemoCredential[] = [
   {
     id: "cred-001",
     recipientId: "rec-001",
-    did: "did:securecert:unilag:180407044",
+    did: "did:legitscan:unilag:180407044",
     status: "ISSUED",
     credentialType: "UniversityDegreeCredential",
     title: "B.Eng. Electrical & Electronics Engineering",
@@ -76,7 +76,7 @@ export const SEED_CREDENTIALS: DemoCredential[] = [
   {
     id: "cred-002",
     recipientId: "rec-002",
-    did: "did:securecert:unilag:190302118",
+    did: "did:legitscan:unilag:190302118",
     status: "PENDING_SIGNATURE",
     credentialType: "UniversityDegreeCredential",
     title: "B.Sc. Computer Science",
@@ -90,7 +90,7 @@ export const SEED_CREDENTIALS: DemoCredential[] = [
   {
     id: "cred-003",
     recipientId: "rec-003",
-    did: "did:securecert:unilag:170501203",
+    did: "did:legitscan:unilag:170501203",
     status: "REVOKED",
     credentialType: "UniversityDegreeCredential",
     title: "LL.B. Law",
@@ -104,7 +104,7 @@ export const SEED_CREDENTIALS: DemoCredential[] = [
   {
     id: "cred-004",
     recipientId: "rec-004",
-    did: "did:securecert:unilag:200214055",
+    did: "did:legitscan:unilag:200214055",
     status: "ISSUED",
     credentialType: "UniversityDegreeCredential",
     title: "B.Pharm. Pharmacy",
@@ -118,7 +118,7 @@ export const SEED_CREDENTIALS: DemoCredential[] = [
   {
     id: "cred-005",
     recipientId: "rec-005",
-    did: "did:securecert:unilag:160908077",
+    did: "did:legitscan:unilag:160908077",
     status: "ISSUED",
     credentialType: "UniversityDegreeCredential",
     title: "M.Sc. Data Science",
@@ -262,7 +262,7 @@ export const SEED_API_KEYS: ApiKeyRecord[] = [
 export const SEED_WEBHOOKS: WebhookRecord[] = [
   {
     id: "wh-1",
-    url: "https://sis.unilag.edu.ng/hooks/securecert",
+    url: "https://sis.unilag.edu.ng/hooks/legitscan",
     events: ["credential.issued", "credential.revoked"],
     status: "ACTIVE",
     lastDelivery: "2026-11-16T09:56:00.000Z",
@@ -277,10 +277,10 @@ export const SEED_WEBHOOKS: WebhookRecord[] = [
 ];
 
 export const SEED_MAPPINGS: FieldMapping[] = [
-  { id: "map-1", sisField: "STU_ID", securecertField: "matricNumber" },
-  { id: "map-2", sisField: "FULL_NAME", securecertField: "fullName" },
-  { id: "map-3", sisField: "PROG_TITLE", securecertField: "title" },
-  { id: "map-4", sisField: "CLASS_OF", securecertField: "graduationYear" },
+  { id: "map-1", sisField: "STU_ID", legitscanField: "matricNumber" },
+  { id: "map-2", sisField: "FULL_NAME", legitscanField: "fullName" },
+  { id: "map-3", sisField: "PROG_TITLE", legitscanField: "title" },
+  { id: "map-4", sisField: "CLASS_OF", legitscanField: "graduationYear" },
 ];
 
 export function createSeedState(): InstitutionDemoState {
@@ -362,7 +362,7 @@ export function nextRecipientId(existing: DemoRecipient[]): string {
 }
 
 export function makeDid(matric: string): string {
-  return `did:securecert:unilag:${matric || "unknown"}`;
+  return `did:legitscan:unilag:${matric || "unknown"}`;
 }
 
 export function randomMerkle(): string {

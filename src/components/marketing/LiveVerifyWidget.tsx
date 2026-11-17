@@ -22,7 +22,7 @@ export function LiveVerifyWidget() {
       const data = await res.json();
       if (data.result === "VALID") {
         sessionStorage.setItem(
-          "securecert.lastVerify",
+          "legitscan.lastVerify",
           JSON.stringify(data.credential),
         );
         router.push("/verify/result");

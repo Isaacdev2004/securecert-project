@@ -107,7 +107,7 @@ export function DashboardView() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `securecert-audit-dossier-${Date.now()}.json`;
+    a.download = `legitscan-audit-dossier-${Date.now()}.json`;
     a.click();
     URL.revokeObjectURL(url);
     setToast("Audit dossier downloaded");

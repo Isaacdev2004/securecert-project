@@ -94,7 +94,7 @@ export type WebhookRecord = {
 export type FieldMapping = {
   id: string;
   sisField: string;
-  securecertField: string;
+  legitscanField: string;
 };
 
 export type InstitutionDemoState = {

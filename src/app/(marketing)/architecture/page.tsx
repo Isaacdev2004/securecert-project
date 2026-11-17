@@ -7,8 +7,8 @@ export default function ArchitecturePage() {
     <>
       <PageIntro
         eyebrow="Platform"
-        title="Cryptography built for program growth — and national trust."
-        lede="Hardware-backed seals, Merkle registries, and selective disclosure — so your institution can issue at scale and the world can verify with confidence."
+        title="Cryptography built for authenticity at scale."
+        lede="Hardware-backed seals, Merkle registries, and selective disclosure — so organisations can issue credentials, documents, and product marks, and anyone authorised can verify with confidence."
       />
 
       <SecurityStrip />
@@ -23,17 +23,17 @@ export default function ArchitecturePage() {
             },
             {
               t: "Merkle registry",
-              d: "Every credential is a leaf. Cohort issuance commits a root. Verifiers recompute inclusion in milliseconds.",
+              d: "Every credential, document, or product mark is a leaf. Bulk issuance commits a root. Verifiers recompute inclusion in milliseconds.",
               icon: "account_tree",
             },
             {
               t: "Selective disclosure",
-              d: "Graduates reveal only what an embassy needs. Identity tokens and grades stay private unless granted.",
+              d: "Holders reveal only what a verifier needs. Sensitive attributes stay private unless granted.",
               icon: "visibility_off",
             },
             {
-              t: "Sovereign tenancy",
-              d: "Isolated institutional enclaves with partner wholesale rails and shard-aware operations.",
+              t: "Multi-issuer tenancy",
+              d: "Isolated enclaves for universities, agencies, and brands — with partner wholesale rails and shard-aware operations.",
               icon: "domain",
             },
           ].map((item) => (

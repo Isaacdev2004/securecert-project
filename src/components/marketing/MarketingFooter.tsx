@@ -12,9 +12,9 @@ export function MarketingFooter() {
             </span>
           </div>
           <p className="mt-4 text-[14px] leading-relaxed text-white/65 max-w-sm">
-            SecureCert is the sovereign digital credential platform enabling
-            universities and partners to issue, share, and verify tamper-proof
-            academic credentials.
+            LegitScan helps organisations issue, manage, store, and verify
+            certificates, government records, and product authenticity marks —
+            Verify · Authenticate · Trust.
           </p>
         </div>
 
@@ -44,13 +44,13 @@ export function MarketingFooter() {
           </p>
           <div className="mt-4 flex flex-col gap-2.5 text-[14px]">
             <Link href="/onboarding" className="text-white/75 hover:text-white">
-              Higher Education
+              Education &amp; agencies
             </Link>
             <Link href="/partners" className="text-white/75 hover:text-white">
-              SIS Partners
+              Brands &amp; partners
             </Link>
             <Link href="/verify" className="text-white/75 hover:text-white">
-              Embassies &amp; WES
+              Public verify
             </Link>
           </div>
         </div>
@@ -78,8 +78,8 @@ export function MarketingFooter() {
 
       <div className="border-t border-white/10">
         <div className="mx-auto max-w-[1200px] px-5 md:px-8 py-5 flex flex-col sm:flex-row gap-2 sm:justify-between text-[12px] text-white/45">
-          <span>© 2026 SecureCert. All rights reserved.</span>
-          <span>NDPA 2023 · NUC Consortium · W3C VC 2.0</span>
+          <span>© 2026 LegitScan. All rights reserved.</span>
+          <span>Credentials · Official records · Product authenticity</span>
         </div>
       </div>
     </footer>
