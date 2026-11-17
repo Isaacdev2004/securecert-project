@@ -24,7 +24,7 @@ export function HomeView() {
       <div className="rounded-2xl bg-gradient-to-br from-[#0b1c30] to-[#134e4a] text-white p-5 shadow-lg relative overflow-hidden">
         <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-[#0f766e]/40 blur-2xl" />
         <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#5eead4] relative">
-          Sovereign passport
+          Holder authenticity vault
         </p>
         <h1 className="mt-2 text-[22px] font-extrabold relative leading-tight">
           {state.holderName}
@@ -32,7 +32,10 @@ export function HomeView() {
         <p className="mt-1 text-[13px] text-white/65 relative">{state.university}</p>
         <div className="mt-4 flex flex-wrap gap-2 relative">
           <span className="rounded-full bg-white/10 px-2.5 py-1 text-[11px] font-semibold">
-            {state.credentials.length} credentials
+            {state.credentials.length} records
+          </span>
+          <span className="rounded-full bg-white/10 px-2.5 py-1 text-[11px] font-semibold">
+            Education · Government · Products
           </span>
           <span className="rounded-full bg-white/10 px-2.5 py-1 text-[11px] font-semibold">
             {activeShares} active shares
@@ -53,9 +56,9 @@ export function HomeView() {
           href="/passport/vault"
           className="rounded-xl bg-white border border-outline-variant/40 p-4 shadow-sm hover:border-[#0f766e]/40"
         >
-          <Icon name="school" size={22} className="text-[#0f766e]" />
+          <Icon name="folder_special" size={22} className="text-[#0f766e]" />
           <p className="mt-2 text-[14px] font-bold">Vault</p>
-          <p className="text-[12px] text-on-surface-variant">All credentials</p>
+          <p className="text-[12px] text-on-surface-variant">All authenticity records</p>
         </Link>
       </div>
 

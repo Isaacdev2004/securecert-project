@@ -12,13 +12,13 @@ import type {
   TariffTier,
 } from "./types";
 
-export const STORAGE_KEY = "legitscan.admin.demo";
+export const STORAGE_KEY = "legitscan.admin.demo.v2";
 
 export const SEED_TENANTS: AdminTenant[] = [
   {
     id: "tn-unilag",
     name: "University of Lagos",
-    did: "did:sc:ng-unilag-01",
+    did: "did:ls:ng-unilag-01",
     sector: "ACADEMIA",
     domain: "verify.unilag.edu.ng",
     hsmNode: "HSM-NG-LAGOS-01",
@@ -32,7 +32,7 @@ export const SEED_TENANTS: AdminTenant[] = [
   {
     id: "tn-waec",
     name: "WAEC Nigeria",
-    did: "did:sc:ng-waec-01",
+    did: "did:ls:ng-waec-01",
     sector: "EXAM",
     domain: "verify.waec.org.ng",
     hsmNode: "GOV-HSM-ABUJA-01",
@@ -46,7 +46,7 @@ export const SEED_TENANTS: AdminTenant[] = [
   {
     id: "tn-edo",
     name: "Edo State DiCert",
-    did: "did:sc:ng-edo-gov-01",
+    did: "did:ls:ng-edo-gov-01",
     sector: "GOV",
     domain: "verify.edostate.gov.ng",
     hsmNode: "GOV-HSM-ABUJA-01",
@@ -60,7 +60,7 @@ export const SEED_TENANTS: AdminTenant[] = [
   {
     id: "tn-laspo",
     name: "Lagos State Polytechnic",
-    did: "did:sc:ng-laspo-02",
+    did: "did:ls:ng-laspo-02",
     sector: "ACADEMIA",
     domain: "verify.mylaspotech.edu.ng",
     hsmNode: "HSM-NG-LAGOS-01",
@@ -74,7 +74,7 @@ export const SEED_TENANTS: AdminTenant[] = [
   {
     id: "tn-fme",
     name: "Federal Ministry of Education",
-    did: "did:sc:ng-fme-01",
+    did: "did:ls:ng-fme-01",
     sector: "GOV",
     domain: "credentials.education.gov.ng",
     hsmNode: "GOV-HSM-ABUJA-01",
@@ -88,7 +88,7 @@ export const SEED_TENANTS: AdminTenant[] = [
   {
     id: "tn-caleb",
     name: "Caleb University",
-    did: "did:sc:ng-caleb-06",
+    did: "did:ls:ng-caleb-06",
     sector: "ACADEMIA",
     domain: "verify.calebuniversity.edu.ng",
     hsmNode: "HSM-NG-LAGOS-01",
@@ -102,7 +102,7 @@ export const SEED_TENANTS: AdminTenant[] = [
   {
     id: "tn-apex",
     name: "Apex Institute",
-    did: "did:sc:ng-apex-04",
+    did: "did:ls:ng-apex-04",
     sector: "ACADEMIA",
     domain: "verify.apex.ng",
     hsmNode: "HSM-NG-ABUJA-02",
@@ -116,7 +116,7 @@ export const SEED_TENANTS: AdminTenant[] = [
   {
     id: "tn-edutech",
     name: "EduTech Global (Reseller)",
-    did: "did:sc:ng-etg-partner-01",
+    did: "did:ls:ng-etg-partner-01",
     sector: "PARTNER",
     domain: "partner.edutech.global",
     hsmNode: "HSM-NG-LAGOS-01",
@@ -126,6 +126,34 @@ export const SEED_TENANTS: AdminTenant[] = [
     status: "COMPLIANT",
     rateLimit: "10,000 req/min",
     established: "2021",
+  },
+  {
+    id: "tn-ocean",
+    name: "OceanFresh Beverages",
+    did: "did:ls:ng-oceanfresh-01",
+    sector: "BRAND",
+    domain: "verify.oceanfresh.ng",
+    hsmNode: "HSM-NG-LAGOS-01",
+    algo: "Ed25519",
+    anchoredCerts: 240000,
+    partner: "TrustLink Channel Partners",
+    status: "COMPLIANT",
+    rateLimit: "8,000 req/min",
+    established: "2016",
+  },
+  {
+    id: "tn-lagos-bldg",
+    name: "Lagos State Building Authority",
+    did: "did:ls:ng-lagos-bldg-01",
+    sector: "GOV",
+    domain: "approvals.lagosstate.gov.ng",
+    hsmNode: "GOV-HSM-ABUJA-01",
+    algo: "Ed25519",
+    anchoredCerts: 91200,
+    partner: "Direct",
+    status: "COMPLIANT",
+    rateLimit: "2,500 req/min",
+    established: "2008",
   },
 ];
 
@@ -449,7 +477,7 @@ export const SEED_EVENTS: GovernanceEvent[] = [
     id: "ev-3",
     at: "2026-11-15T09:00:00.000Z",
     kind: "AUDIT",
-    message: "DID allocated · did:sc:ng-noun-09 · Noun University",
+    message: "DID allocated · did:ls:ng-noun-09 · Noun University",
   },
   {
     id: "ev-4",

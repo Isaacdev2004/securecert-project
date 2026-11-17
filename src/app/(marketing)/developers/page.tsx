@@ -5,9 +5,13 @@ export default function DevelopersPage() {
   return (
     <>
       <PageIntro
-        eyebrow="Developers"
-        title="Integrate once. Verify forever."
-        lede="Issue, revoke, and resolve W3C credentials from your SIS — with sandbox keys, webhooks, and field mapping when you are ready."
+        eyebrow="Developers · APIs · Webhooks · Sandbox"
+        title="Ship authenticity into your product — not a side portal."
+        lede="Issue, revoke, and resolve credentials, official records, and product marks from the systems you already run. Sandbox keys, webhooks, and field mapping when you are ready to go live."
+        actions={[
+          { href: "/signup", label: "Get sandbox access" },
+          { href: "/architecture", label: "See architecture", variant: "secondary" },
+        ]}
       />
 
       <section className="bg-white">

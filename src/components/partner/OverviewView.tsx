@@ -56,7 +56,7 @@ export function OverviewView() {
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
           <nav className="flex items-center gap-2 font-audit-mono text-audit-mono text-secondary mb-1">
-            <span>Partner Engine</span>
+            <span>Channel partner</span>
             <span className="text-outline">/</span>
             <span className="text-on-surface font-medium">Overview / Health</span>
           </nav>
@@ -64,7 +64,8 @@ export function OverviewView() {
             {state.partnerName}
           </h1>
           <p className="font-body-md text-body-md text-on-surface-variant mt-0.5">
-            {state.tier} · Partner ID {state.partnerId} · {state.officer}
+            {state.tier} · wholesale for brands, agencies &amp; SIS · ID{" "}
+            {state.partnerId} · {state.officer}
           </p>
         </div>
         <div className="flex flex-wrap items-center gap-2">
@@ -117,13 +118,14 @@ export function OverviewView() {
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
         <div className="p-4 rounded bg-surface-container-lowest shadow-sm">
           <p className="font-label-status text-label-status uppercase text-secondary">
-            Connected tenancies
+            Connected issuer tenancies
           </p>
           <p className="font-headline-xl text-headline-xl text-primary font-bold mt-1">
             {tenancies}
           </p>
           <p className="font-audit-mono text-audit-mono text-on-surface-variant mt-2">
-            {state.schools.filter((s) => s.status === "PENDING").length} pending invites
+            {state.schools.filter((s) => s.status === "PENDING").length} pending
+            invites · schools, agencies, brands
           </p>
         </div>
         <div className="p-4 rounded bg-surface-container-lowest shadow-sm">

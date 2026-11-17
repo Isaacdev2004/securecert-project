@@ -10,7 +10,7 @@ import type {
   VerifierDemoState,
 } from "./types";
 
-export const STORAGE_KEY = "legitscan.verifier.demo";
+export const STORAGE_KEY = "legitscan.verifier.demo.v2";
 
 export const SEED_UNIVERSITIES: IssuingUniversity[] = [
   { code: "UNILAG", name: "University of Lagos (UNILAG)", hsmLabel: "UNILAG-HSM-ROOT-04" },
@@ -19,6 +19,8 @@ export const SEED_UNIVERSITIES: IssuingUniversity[] = [
   { code: "UNN", name: "University of Nigeria, Nsukka (UNN)", hsmLabel: "UNN-HSM-ROOT-03" },
   { code: "CU", name: "Covenant University (CU Ota)", hsmLabel: "CU-HSM-ROOT-01" },
   { code: "OAU", name: "Obafemi Awolowo University (OAU)", hsmLabel: "OAU-HSM-ROOT-02" },
+  { code: "BRAND", name: "Brand / Manufacturer issuers", hsmLabel: "BRAND-HSM-ROOT-01" },
+  { code: "LAGOS", name: "Lagos State Building Authority", hsmLabel: "LAGOS-GOV-HSM-01" },
 ];
 
 export const SEED_CASES: VerificationCase[] = [
@@ -122,6 +124,46 @@ export const SEED_CASES: VerificationCase[] = [
     merkleRoot: "0xdead00…rev1",
     blockRef: "OAU-REV-2025-014",
     attested: false,
+  },
+  {
+    id: "case-prod-1",
+    candidateName: "OceanFresh 500ml Batch 441",
+    initials: "OF",
+    matricNumber: "SKU-OF-500ML-BATCH-441",
+    universityCode: "BRAND",
+    degreeLine: "Product authenticity mark · Genuine",
+    artifact: "QR seal pack",
+    artifactFormat: "W3C-VC",
+    agency: "Retail / Customs",
+    purposeRef: "ANTI-COUNTERFEIT",
+    officer: "Desk · Product rail",
+    purpose: "PRODUCT",
+    consentStatus: "ACTIVE",
+    cryptoStatus: "MERKLE_VALID",
+    did: "did:legitscan:brand:oceanfresh:441",
+    merkleRoot: "0xprod55…9aa1",
+    blockRef: "blk-prod-441",
+    attested: true,
+  },
+  {
+    id: "case-gov-1",
+    candidateName: "Ngozi Adebayo",
+    initials: "NA",
+    matricNumber: "LAG/BLD/2024/88421",
+    universityCode: "LAGOS",
+    degreeLine: "Lagos Building Plan Approval",
+    artifact: "Agency approval pack",
+    artifactFormat: "W3C-VC",
+    agency: "Municipal planning",
+    purposeRef: "PERMIT-CHECK",
+    officer: "Desk · Government rail",
+    purpose: "GOVERNMENT",
+    consentStatus: "ACTIVE",
+    cryptoStatus: "MINISTRY_SEALED",
+    did: "did:legitscan:lagos:bld:88421",
+    merkleRoot: "0xgov81a…c4e2",
+    blockRef: "blk-gov-88421",
+    attested: true,
   },
 ];
 

@@ -53,14 +53,14 @@ export function SchoolsView() {
           <nav className="flex items-center gap-2 font-audit-mono text-audit-mono text-secondary mb-1">
             <span>Partner</span>
             <span className="text-outline">/</span>
-            <span className="text-on-surface font-medium">Connected Schools</span>
+            <span className="text-on-surface font-medium">Connected issuers</span>
           </nav>
           <h1 className="font-headline-lg text-headline-lg text-primary tracking-tight">
-            Connected Client Schools &amp; Tenancies
+            Connected issuers — education, agencies &amp; brands
           </h1>
           <p className="font-body-md text-body-md text-on-surface-variant mt-0.5">
-            {synced.toLocaleString()} synced credentials across {state.schools.length}{" "}
-            tenancies
+            {synced.toLocaleString()} synced authenticity records across{" "}
+            {state.schools.length} issuer tenancies
           </p>
         </div>
         <div className="flex flex-wrap gap-2">

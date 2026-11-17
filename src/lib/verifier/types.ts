@@ -2,6 +2,8 @@ export type CasePurpose =
   | "VISA"
   | "WES"
   | "CORPORATE"
+  | "PRODUCT"
+  | "GOVERNMENT"
   | "EXCEPTION";
 
 export type ConsentStatus =

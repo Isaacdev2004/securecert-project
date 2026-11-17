@@ -44,9 +44,13 @@ export default function OnboardingPage() {
   return (
     <>
       <PageIntro
-        eyebrow="Get a demo"
-        title="Book an enterprise demo."
-        lede="Tell us who you are. We schedule a registrar briefing and provision a sandbox tenancy after a short walkthrough."
+        eyebrow="Get a demo · Issuers · Partners · Verifiers"
+        title="See LegitScan on your authenticity workflow."
+        lede="Tell us whether you issue credentials, government records, or product marks — or verify them at scale. We schedule a short walkthrough and can provision a sandbox tenancy afterward."
+        actions={[
+          { href: "/login", label: "Try a demo portal", variant: "secondary" },
+          { href: "/verify", label: "Public verify →", variant: "text" },
+        ]}
       />
 
       <section className="bg-gray-50 border-b border-gray-100">

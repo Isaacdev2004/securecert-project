@@ -13,7 +13,7 @@ import type {
 
 const TENANT = "11111111-1111-1111-1111-111111111111";
 
-export const STORAGE_KEY = "legitscan.institution.demo";
+export const STORAGE_KEY = "legitscan.institution.demo.v2";
 
 export const SEED_RECIPIENTS: DemoRecipient[] = [
   {
@@ -56,6 +56,31 @@ export const SEED_RECIPIENTS: DemoRecipient[] = [
     program: "M.Sc. Data Science",
     graduationYear: 2024,
   },
+
+  {
+    id: "rec-006",
+    fullName: "Ngozi Adebayo",
+    email: "ngozi.adebayo@citizens.lagos.ng",
+    matricNumber: "LAG/BLD/2024/88421",
+    program: "Building Plan Approval",
+    graduationYear: 2024,
+  },
+  {
+    id: "rec-007",
+    fullName: "OceanFresh Beverages Ltd",
+    email: "compliance@oceanfresh.ng",
+    matricNumber: "SKU-OF-500ML-BATCH-441",
+    program: "Bottled water authenticity",
+    graduationYear: 2026,
+  },
+  {
+    id: "rec-008",
+    fullName: "Chinedu Okonkwo",
+    email: "chinedu.okonkwo@gmail.com",
+    matricNumber: "NIMC/NIN/9988776655",
+    program: "National ID verification pack",
+    graduationYear: 2025,
+  },
 ];
 
 export const SEED_CREDENTIALS: DemoCredential[] = [
@@ -64,6 +89,7 @@ export const SEED_CREDENTIALS: DemoCredential[] = [
     recipientId: "rec-001",
     did: "did:legitscan:unilag:180407044",
     status: "ISSUED",
+    rail: "EDUCATION" as const,
     credentialType: "UniversityDegreeCredential",
     title: "B.Eng. Electrical & Electronics Engineering",
     classification: "First Class Honours",
@@ -78,6 +104,7 @@ export const SEED_CREDENTIALS: DemoCredential[] = [
     recipientId: "rec-002",
     did: "did:legitscan:unilag:190302118",
     status: "PENDING_SIGNATURE",
+    rail: "EDUCATION" as const,
     credentialType: "UniversityDegreeCredential",
     title: "B.Sc. Computer Science",
     classification: "Second Class Upper",
@@ -92,6 +119,7 @@ export const SEED_CREDENTIALS: DemoCredential[] = [
     recipientId: "rec-003",
     did: "did:legitscan:unilag:170501203",
     status: "REVOKED",
+    rail: "EDUCATION" as const,
     credentialType: "UniversityDegreeCredential",
     title: "LL.B. Law",
     classification: "Second Class Lower",
@@ -106,6 +134,7 @@ export const SEED_CREDENTIALS: DemoCredential[] = [
     recipientId: "rec-004",
     did: "did:legitscan:unilag:200214055",
     status: "ISSUED",
+    rail: "EDUCATION" as const,
     credentialType: "UniversityDegreeCredential",
     title: "B.Pharm. Pharmacy",
     classification: "Distinction",
@@ -120,6 +149,7 @@ export const SEED_CREDENTIALS: DemoCredential[] = [
     recipientId: "rec-005",
     did: "did:legitscan:unilag:160908077",
     status: "ISSUED",
+    rail: "EDUCATION" as const,
     credentialType: "UniversityDegreeCredential",
     title: "M.Sc. Data Science",
     classification: "Merit",
@@ -129,6 +159,52 @@ export const SEED_CREDENTIALS: DemoCredential[] = [
     merkleRoot: "0xbb18f0…de44",
     createdAt: "2024-12-02T16:10:00.000Z",
   },
+
+  {
+    id: "cred-006",
+    recipientId: "rec-006",
+    did: "did:legitscan:lagos:bld:88421",
+    status: "ISSUED",
+    rail: "GOVERNMENT" as const,
+    credentialType: "BuildingApprovalCredential",
+    title: "Lagos Building Plan Approval",
+    classification: "Residential · Valid",
+    issuedAt: "2024-06-18T11:00:00.000Z",
+    revokedAt: null,
+    revokeReason: null,
+    merkleRoot: "0xgov81a…c4e2",
+    createdAt: "2024-06-18T10:58:00.000Z",
+  },
+  {
+    id: "cred-007",
+    recipientId: "rec-007",
+    did: "did:legitscan:brand:oceanfresh:441",
+    status: "ISSUED",
+    rail: "PRODUCT" as const,
+    credentialType: "ProductAuthenticityCredential",
+    title: "OceanFresh 500ml · Batch 441",
+    classification: "Genuine · Anti-counterfeit seal",
+    issuedAt: "2026-10-02T08:15:00.000Z",
+    revokedAt: null,
+    revokeReason: null,
+    merkleRoot: "0xprod55…9aa1",
+    createdAt: "2026-10-02T08:12:00.000Z",
+  },
+  {
+    id: "cred-008",
+    recipientId: "rec-008",
+    did: "did:legitscan:nimc:9988776655",
+    status: "PENDING_SIGNATURE",
+    rail: "GOVERNMENT" as const,
+    credentialType: "OfficialIdentityPack",
+    title: "NIMC Identity Attestation Pack",
+    classification: "Citizen · Selective disclosure",
+    issuedAt: null,
+    revokedAt: null,
+    revokeReason: null,
+    merkleRoot: "0xpending…gov",
+    createdAt: "2026-11-10T09:00:00.000Z",
+  },
 ];
 
 export const SEED_STREAM: StreamEvent[] = [
@@ -136,7 +212,7 @@ export const SEED_STREAM: StreamEvent[] = [
     id: "evt-1",
     at: "2026-11-16T09:57:00.000Z",
     kind: "VERIFY",
-    message: "WES consular desk verified did:…044 · VALID",
+    message: "Employer desk verified degree did:…044 · VALID",
   },
   {
     id: "evt-2",
@@ -148,7 +224,7 @@ export const SEED_STREAM: StreamEvent[] = [
     id: "evt-3",
     at: "2026-11-16T09:55:00.000Z",
     kind: "ISSUE",
-    message: "Credential sealed · cred-004 · HSM ED25519",
+    message: "Product mark sealed · cred-007 · HSM ED25519",
   },
   {
     id: "evt-4",
@@ -210,6 +286,27 @@ export const SEED_BULK: BulkJob[] = [
     createdAt: "2026-11-16T09:40:00.000Z",
     completedAt: null,
   },
+
+  {
+    id: "bulk-3",
+    name: "Q4 product seal campaign",
+    rowCount: 12000,
+    successCount: 11940,
+    failCount: 12,
+    status: "COMPLETED",
+    createdAt: "2026-10-01T07:00:00.000Z",
+    completedAt: "2026-10-01T09:22:00.000Z",
+  },
+  {
+    id: "bulk-4",
+    name: "Agency permit cohort · Oct",
+    rowCount: 860,
+    successCount: 200,
+    failCount: 0,
+    status: "RUNNING",
+    createdAt: "2026-11-16T08:10:00.000Z",
+    completedAt: null,
+  },
 ];
 
 export const SEED_TEMPLATES: CertificateTemplate[] = [
@@ -237,6 +334,31 @@ export const SEED_TEMPLATES: CertificateTemplate[] = [
       { id: "f3", label: "Thesis title", source: "payload.thesis" },
     ],
     updatedAt: "2026-01-15T12:00:00.000Z",
+  },
+
+  {
+    id: "tpl-gov",
+    name: "Government Approval",
+    accent: "#0f766e",
+    sealLabel: "Agency Seal",
+    fields: [
+      { id: "f1", label: "Subject name", source: "recipient.fullName" },
+      { id: "f2", label: "Approval title", source: "credential.title" },
+      { id: "f3", label: "File reference", source: "recipient.matricNumber" },
+    ],
+    updatedAt: "2026-03-01T12:00:00.000Z",
+  },
+  {
+    id: "tpl-product",
+    name: "Product Authenticity Mark",
+    accent: "#134e4a",
+    sealLabel: "Brand Seal",
+    fields: [
+      { id: "f1", label: "Brand / owner", source: "recipient.fullName" },
+      { id: "f2", label: "SKU / batch", source: "recipient.matricNumber" },
+      { id: "f3", label: "Product title", source: "credential.title" },
+    ],
+    updatedAt: "2026-04-01T12:00:00.000Z",
   },
 ];
 
@@ -285,7 +407,7 @@ export const SEED_MAPPINGS: FieldMapping[] = [
 
 export function createSeedState(): InstitutionDemoState {
   return {
-    tenantName: "University of Lagos",
+    tenantName: "Lagos Authenticity Hub",
     chainId: "0x9AF28 · ED25519-HSM",
     recipients: structuredClone(SEED_RECIPIENTS),
     credentials: structuredClone(SEED_CREDENTIALS),
@@ -312,11 +434,15 @@ export function normalizeState(
 ): InstitutionDemoState {
   const seed = createSeedState();
   if (!partial?.credentials?.length) return seed;
+  const credentials = partial.credentials.map((c) => ({
+    ...c,
+    rail: c.rail ?? ("EDUCATION" as const),
+  }));
   return {
     ...seed,
     ...partial,
     recipients: partial.recipients?.length ? partial.recipients : seed.recipients,
-    credentials: partial.credentials,
+    credentials,
     stream: partial.stream?.length ? partial.stream : seed.stream,
     kpis: partial.kpis ?? seed.kpis,
     team: partial.team?.length ? partial.team : seed.team,

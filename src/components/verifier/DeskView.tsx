@@ -69,7 +69,15 @@ export function DeskView() {
   }, [state.cases, filter]);
 
   const counts = useMemo(() => {
-    const base = { ALL: state.cases.length, VISA: 0, WES: 0, CORPORATE: 0, EXCEPTION: 0 };
+    const base = {
+      ALL: state.cases.length,
+      VISA: 0,
+      WES: 0,
+      CORPORATE: 0,
+      PRODUCT: 0,
+      GOVERNMENT: 0,
+      EXCEPTION: 0,
+    };
     for (const c of state.cases) base[c.purpose] += 1;
     return base;
   }, [state.cases]);
@@ -97,7 +105,7 @@ export function DeskView() {
           <nav className="flex items-center gap-2 font-audit-mono text-audit-mono text-secondary mb-1">
             <span>Verifier Portal</span>
             <span className="text-outline">/</span>
-            <span>Consular Operations</span>
+            <span>Authenticity desk</span>
             <span className="text-outline">/</span>
             <span className="text-on-surface font-medium">Batch &amp; Single Desk</span>
           </nav>
@@ -106,7 +114,8 @@ export function DeskView() {
           </h1>
           <p className="font-body-md text-body-md text-on-surface-variant max-w-3xl mt-0.5">
             Instant cryptographic attestation, zero-knowledge attribute verification, and
-            diplomatic W3C dossier compilation against sovereign university HSM roots.
+            verify credentials, government records, and product authenticity marks
+            against issuer HSM roots.
           </p>
         </div>
         <div className="flex flex-wrap items-center gap-2">
@@ -330,7 +339,7 @@ export function DeskView() {
                 </h2>
               </div>
               <p className="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
-                Live attestation stream from missions, WES/ENIC, and corporate recruiters.
+                Live attestation stream across education, government, and product rails.
               </p>
             </div>
             <button
@@ -351,6 +360,8 @@ export function DeskView() {
                 ["VISA", `Visa (${counts.VISA})`],
                 ["WES", `WES/ENIC (${counts.WES})`],
                 ["CORPORATE", `Corporate (${counts.CORPORATE})`],
+                ["PRODUCT", `Products (${counts.PRODUCT})`],
+                ["GOVERNMENT", `Government (${counts.GOVERNMENT})`],
                 ["EXCEPTION", `Exceptions (${counts.EXCEPTION})`],
               ] as const
             ).map(([key, label]) => (

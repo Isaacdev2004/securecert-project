@@ -6,9 +6,13 @@ export default function WholesalePage() {
   return (
     <>
       <PageIntro
-        eyebrow="Pricing"
-        title="Wholesale economics that scale with every verification."
-        lede="Institutions earn sovereign dividends on consular lookups. Partners lock tiered rates without a spreadsheet wall."
+        eyebrow="Pricing · Issuer economy"
+        title="Turn every authenticity check into lasting value."
+        lede="Issuers earn on verified lookups. Partners lock wholesale tiers. Brands, agencies, and institutions keep trust as revenue — not only a compliance cost."
+        actions={[
+          { href: "/onboarding", label: "Talk pricing" },
+          { href: "/partners", label: "Partner solutions", variant: "secondary" },
+        ]}
       />
 
       <section className="bg-gray-50">

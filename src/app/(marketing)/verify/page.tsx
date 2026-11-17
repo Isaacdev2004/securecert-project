@@ -41,9 +41,13 @@ export default function VerifyPage() {
   return (
     <>
       <PageIntro
-        eyebrow="Public verify"
-        title="Confirm authenticity in seconds."
-        lede="Enter a DID, reference ID, serial, or nonce for a credential, official record, or product mark. No account required for a single lookup."
+        eyebrow="Public verify · No account required"
+        title="Scan once. Know if it is real."
+        lede="Check a certificate, government document, approval, or product authenticity mark. Enter a DID, reference ID, serial, or nonce — basic lookups need no login."
+        actions={[
+          { href: "/login", label: "Open verifier desk", variant: "secondary" },
+          { href: "/onboarding", label: "Issue on LegitScan →", variant: "text" },
+        ]}
       />
 
       <section className="bg-gray-50">

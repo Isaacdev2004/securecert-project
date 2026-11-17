@@ -135,7 +135,13 @@ export function InstitutionStoreProvider({ children }: { children: ReactNode }) 
           recipientId,
           did: makeDid(input.matricNumber),
           status: "ISSUED" as const,
-          credentialType: "UniversityDegreeCredential",
+          rail: input.rail ?? "EDUCATION",
+          credentialType:
+            input.rail === "PRODUCT"
+              ? "ProductAuthenticityCredential"
+              : input.rail === "GOVERNMENT"
+                ? "GovernmentRecordCredential"
+                : "UniversityDegreeCredential",
           title: input.title,
           classification: input.classification,
           issuedAt: now,

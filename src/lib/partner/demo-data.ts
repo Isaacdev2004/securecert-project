@@ -14,7 +14,7 @@ import type {
   WhiteLabelConfig,
 } from "./types";
 
-export const STORAGE_KEY = "legitscan.partner.demo";
+export const STORAGE_KEY = "legitscan.partner.demo.v2";
 
 export const SEED_SCHOOLS: PartnerSchool[] = [
   {
@@ -76,6 +76,26 @@ export const SEED_SCHOOLS: PartnerSchool[] = [
     sisProduct: "EduNova Cloud",
     syncedRecords: 2140,
     lastHeartbeat: "2026-11-15T11:22:00.000Z",
+  },
+  {
+    id: "ps-ocean",
+    name: "OceanFresh Beverages",
+    did: "did:sc:ng-oceanfresh-07",
+    region: "Lagos",
+    status: "ACTIVE",
+    sisProduct: "Brand Catalogue API",
+    syncedRecords: 240000,
+    lastHeartbeat: "2026-11-16T22:00:00.000Z",
+  },
+  {
+    id: "ps-lagos-bldg",
+    name: "Lagos State Building Authority",
+    did: "did:sc:ng-lagos-bldg-08",
+    region: "Lagos",
+    status: "ACTIVE",
+    sisProduct: "Agency Registry",
+    syncedRecords: 91200,
+    lastHeartbeat: "2026-11-16T21:10:00.000Z",
   },
 ];
 
@@ -418,7 +438,7 @@ export const SEED_STREAM: StreamEvent[] = [
 
 export function createSeedState(): PartnerDemoState {
   return {
-    partnerName: "EduTech Global Solutions",
+    partnerName: "TrustLink Channel Partners",
     partnerId: "ETG-SIS-77092-NG",
     officer: "Engr. D. Adeleke",
     tier: "GOLD PARTNER TIER-1",

@@ -6,9 +6,13 @@ export default function ArchitecturePage() {
   return (
     <>
       <PageIntro
-        eyebrow="Platform"
-        title="Cryptography built for authenticity at scale."
-        lede="Hardware-backed seals, Merkle registries, and selective disclosure — so organisations can issue credentials, documents, and product marks, and anyone authorised can verify with confidence."
+        eyebrow="Platform · Verify · Authenticate · Trust"
+        title="One trust stack for credentials, documents, and products."
+        lede="Hardware-backed seals, Merkle registries, and selective disclosure — so issuers can scale authenticity and verifiers can prove it in milliseconds, without trusting a PDF."
+        actions={[
+          { href: "/onboarding", label: "Book a demo" },
+          { href: "/developers", label: "View APIs", variant: "secondary" },
+        ]}
       />
 
       <SecurityStrip />

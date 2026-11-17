@@ -58,7 +58,8 @@ export function TenantsView() {
       sector === "ACADEMIA" ||
       sector === "GOV" ||
       sector === "EXAM" ||
-      sector === "PARTNER"
+      sector === "PARTNER" ||
+      sector === "BRAND"
     ) {
       setFilter(sector);
       return;
@@ -127,14 +128,14 @@ export function TenantsView() {
             <span>Super Admin</span>
             <span className="text-outline">/</span>
             <span className="text-on-surface font-medium">
-              Global Tenant &amp; Domains
+              Multi-sector tenants
             </span>
           </nav>
           <h1 className="font-headline-lg text-headline-lg text-primary tracking-tight">
-            Global Tenant &amp; Domain Governance
+            Tenant governance across education, government &amp; brands
           </h1>
           <p className="font-body-md text-body-md text-on-surface-variant mt-0.5">
-            {state.officer} · {state.title} · NDPA &amp; Lisbon compliance plane
+            {state.officer} · {state.title} · authenticity network control plane
           </p>
         </div>
         <div className="flex flex-wrap gap-2">
@@ -206,7 +207,8 @@ export function TenantsView() {
         {(
           [
             ["ALL", "All"],
-            ["ACADEMIA", "Universities"],
+            ["ACADEMIA", "Education"],
+            ["BRAND", "Brands"],
             ["GOV", "Gov"],
             ["EXAM", "Exam"],
             ["PARTNER", "Resellers"],
@@ -402,7 +404,7 @@ export function TenantsView() {
               }
               className="w-full rounded bg-surface-container-low px-3 py-2 focus:outline-none"
             >
-              {(["ACADEMIA", "GOV", "EXAM", "PARTNER"] as const).map((s) => (
+              {(["ACADEMIA", "GOV", "EXAM", "PARTNER", "BRAND"] as const).map((s) => (
                 <option key={s} value={s}>
                   {s}
                 </option>

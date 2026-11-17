@@ -1,3 +1,5 @@
+export type AssetRail = "EDUCATION" | "GOVERNMENT" | "PRODUCT";
+
 export type PassportCredentialStatus = "ACTIVE" | "REVOKED" | "EXPIRED";
 
 export type PassportCredential = {
@@ -5,6 +7,7 @@ export type PassportCredential = {
   title: string;
   issuer: string;
   classification: string;
+  rail: AssetRail;
   matricNumber: string;
   did: string;
   status: PassportCredentialStatus;
@@ -43,6 +46,7 @@ export type ActivityEvent = {
 export type PassportDemoState = {
   holderName: string;
   holderEmail: string;
+  /** Primary issuer org / affiliation label */
   university: string;
   credentials: PassportCredential[];
   shares: ShareLink[];

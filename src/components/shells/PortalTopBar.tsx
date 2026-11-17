@@ -13,31 +13,36 @@ const META: Record<
     eyebrow: string;
     search: string;
     statuses: { label: string }[];
+    icon: string;
   }
 > = {
   institution: {
-    org: "University of Lagos",
-    eyebrow: "Live · Tier-1 registrar node",
-    search: "Search records, DID, matric…",
-    statuses: [{ label: "Gateway 99.99%" }, { label: "Webhooks active" }],
+    org: "Lagos Authenticity Hub",
+    eyebrow: "Issuer · Education · Government · Products",
+    search: "Search records, DID, serial, reference…",
+    statuses: [{ label: "3 rails live" }, { label: "Webhooks active" }],
+    icon: "verified_user",
   },
   partner: {
-    org: "EduTech Global Solutions",
-    eyebrow: "Vendor partner · Tier-1",
-    search: "Search schools, apps, keys…",
+    org: "TrustLink Channel Partners",
+    eyebrow: "Wholesale · Brands · Agencies · SIS",
+    search: "Search issuers, apps, keys…",
     statuses: [{ label: "Gateway 99.99%" }, { label: "18ms mean" }],
+    icon: "hub",
   },
   admin: {
     org: "LegitScan Root Governance",
-    eyebrow: "Zone-0 · Master console",
+    eyebrow: "Zone-0 · Multi-sector network",
     search: "Search tenants, shards, keys…",
     statuses: [{ label: "HSM online" }, { label: "Clusters healthy" }],
+    icon: "admin_panel_settings",
   },
   verifier: {
-    org: "High Commission of Canada",
-    eyebrow: "Consular verification desk",
-    search: "Search DID, matric, batch…",
-    statuses: [{ label: "HSM validated" }, { label: "mTLS armed" }],
+    org: "National Authenticity Desk",
+    eyebrow: "Verify credentials · documents · products",
+    search: "Search DID, serial, batch, reference…",
+    statuses: [{ label: "HSM validated" }, { label: "Public + desk" }],
+    icon: "fact_check",
   },
 };
 
@@ -65,18 +70,7 @@ export function PortalTopBar({ shell, navOpen, onToggleNav }: Props) {
 
         <div className="min-w-0 flex items-center gap-2 shrink">
           <span className="hidden sm:inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary-container text-on-primary">
-            <Icon
-              name={
-                shell === "verifier"
-                  ? "fact_check"
-                  : shell === "partner"
-                    ? "hub"
-                    : shell === "admin"
-                      ? "admin_panel_settings"
-                      : "account_balance"
-              }
-              size={18}
-            />
+            <Icon name={meta.icon} size={18} />
           </span>
           <div className="min-w-0">
             <p className="truncate text-[13px] font-bold text-on-surface leading-tight">

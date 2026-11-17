@@ -7,9 +7,14 @@ export default function PartnersPage() {
   return (
     <>
       <PageIntro
-        eyebrow="Solutions"
-        title="Serve every organisation that needs authenticity."
-        lede="LegitScan sits beside SIS, agency registries, and brand catalogues — white-label verification and wholesale margins included."
+        eyebrow="Solutions · Education · Government · Brands"
+        title="Authenticity programs for every issuer you serve."
+        lede="Whether you run a university, a government agency, a brand line, or a software channel — LegitScan plugs in beside your systems of record with white-label verify and wholesale economics."
+        actions={[
+          { href: "/onboarding", label: "Become an issuer" },
+          { href: "/login", label: "Partner login", variant: "secondary" },
+          { href: "/verify", label: "Try verify →", variant: "text" },
+        ]}
       />
 
       <LogoMarquee />

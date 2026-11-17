@@ -1,4 +1,4 @@
-export type TenantSector = "ACADEMIA" | "GOV" | "EXAM" | "PARTNER";
+export type TenantSector = "ACADEMIA" | "GOV" | "EXAM" | "PARTNER" | "BRAND";
 
 export type TenantStatus =
   | "COMPLIANT"

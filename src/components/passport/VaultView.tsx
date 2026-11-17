@@ -32,9 +32,11 @@ export function VaultView() {
   return (
     <PageFrame>
       <div>
-        <h1 className="text-[24px] font-extrabold tracking-tight">Credentials</h1>
+        <h1 className="text-[24px] font-extrabold tracking-tight">
+          Authenticity vault
+        </h1>
         <p className="text-[13px] text-on-surface-variant mt-1">
-          {state.credentials.length} items in your sovereign vault
+          {state.credentials.length} credentials, documents &amp; product marks
         </p>
       </div>
 
@@ -61,7 +63,12 @@ export function VaultView() {
             >
               <div className="flex items-start justify-between gap-3">
                 <div className="min-w-0">
-                  <StatusPill status={c.status} />
+                  <div className="flex flex-wrap items-center gap-2">
+                    <StatusPill status={c.status} />
+                    <span className="rounded-full bg-surface-container-low px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-secondary">
+                      {c.rail}
+                    </span>
+                  </div>
                   <p className="mt-2 text-[15px] font-bold leading-snug">{c.title}</p>
                   <p className="mt-1 text-[12px] text-on-surface-variant">
                     {c.issuer}

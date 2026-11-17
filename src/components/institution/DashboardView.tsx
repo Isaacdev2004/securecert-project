@@ -6,17 +6,24 @@ import { useRouter } from "next/navigation";
 import { Icon } from "@/components/marketing/Icon";
 import { useInstitutionStore } from "@/lib/institution/store";
 import { recipientFor } from "@/lib/institution/demo-data";
-import type { CredentialStatus } from "@/lib/institution/types";
+import type { AssetRail, CredentialStatus } from "@/lib/institution/types";
 import { PageFrame, StatusChip, Toast, formatWhen } from "./ui";
 
-const RANGES = ["Last 7 days", "Last 30 days", "This academic year"] as const;
+const RANGES = ["Last 7 days", "Last 30 days", "This quarter"] as const;
 
 const STREAM_TEMPLATES = [
-  { kind: "VERIFY" as const, message: "Embassy desk verified credential · VALID" },
+  { kind: "VERIFY" as const, message: "Employer desk verified credential · VALID" },
+  { kind: "VERIFY" as const, message: "Customs scan · product mark VALID" },
+  { kind: "VERIFY" as const, message: "Agency desk · building approval VALID" },
   { kind: "WEBHOOK" as const, message: "POST /hooks/verify · 200 · latency 18ms" },
   { kind: "SYNC" as const, message: "Merkle tip heartbeat · shard-alpha healthy" },
-  { kind: "VERIFY" as const, message: "Employer portal query · public resolve" },
 ];
+
+const RAIL_LABEL: Record<AssetRail, string> = {
+  EDUCATION: "Education",
+  GOVERNMENT: "Government",
+  PRODUCT: "Product",
+};
 
 function useCountUp(target: number, active: boolean, decimals = 0) {
   const [value, setValue] = useState(0);
@@ -49,6 +56,7 @@ export function DashboardView() {
   const [statusFilter, setStatusFilter] = useState<CredentialStatus | "ALL">(
     "ALL",
   );
+  const [railFilter, setRailFilter] = useState<AssetRail | "ALL">("ALL");
   const [toast, setToast] = useState<string | null>(null);
   const [registerOpen, setRegisterOpen] = useState(false);
   const [registerForm, setRegisterForm] = useState({
@@ -76,6 +84,9 @@ export function DashboardView() {
         if (statusFilter !== "ALL" && credential.status !== statusFilter) {
           return false;
         }
+        if (railFilter !== "ALL" && credential.rail !== railFilter) {
+          return false;
+        }
         if (!query.trim()) return true;
         const q = query.toLowerCase();
         return (
@@ -85,7 +96,7 @@ export function DashboardView() {
           recipient?.matricNumber.toLowerCase().includes(q)
         );
       });
-  }, [state, query, statusFilter]);
+  }, [state, query, statusFilter, railFilter]);
 
   const records = useCountUp(state.kpis.authenticatedRecords, ready);
   const queries = useCountUp(state.kpis.publicQueries, ready);
@@ -114,9 +125,9 @@ export function DashboardView() {
   }
 
   function onRevoke(id: string) {
-    if (!window.confirm("Revoke this credential in the demo ledger?")) return;
-    revokeCredential(id, "Registrar demo revoke");
-    setToast("Credential marked revoked");
+    if (!window.confirm("Revoke this record in the demo ledger?")) return;
+    revokeCredential(id, "Issuer demo revoke");
+    setToast("Record marked revoked");
   }
 
   async function copyDid(did: string) {
@@ -145,7 +156,7 @@ export function DashboardView() {
     return (
       <PageFrame>
         <p className="text-on-surface-variant py-20 text-center">
-          Loading institutional ledger…
+          Loading issuer ledger…
         </p>
       </PageFrame>
     );
@@ -158,17 +169,18 @@ export function DashboardView() {
         <div className="max-w-3xl">
           <div className="flex flex-wrap items-center gap-2">
             <span className="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container text-[11px] font-bold uppercase tracking-wide">
-              Tier-1 Authority Root
+              Multi-rail issuer
             </span>
             <span className="font-audit-mono text-[11px] text-secondary">
               CHAIN_ID: {state.chainId}
             </span>
           </div>
           <h1 className="mt-2 text-[24px] sm:text-[28px] font-bold tracking-tight text-on-surface">
-            Overview
+            Issuer overview
           </h1>
           <p className="mt-1 text-[14px] text-on-surface-variant">
-            {state.tenantName} · live demo workspace for registrar operations
+            {state.tenantName} · issue credentials, government records, and
+            product authenticity marks
           </p>
         </div>
 
@@ -204,7 +216,7 @@ export function DashboardView() {
             className="px-3 py-2 rounded-lg bg-[#0f766e] text-white text-[13px] font-semibold hover:bg-[#0d9488] inline-flex items-center gap-1.5"
           >
             <Icon name="add_moderator" size={16} />
-            Issue credential
+            Issue record
           </button>
           <button
             type="button"
@@ -217,11 +229,35 @@ export function DashboardView() {
         </div>
       </div>
 
+      <div className="mt-4 flex flex-wrap gap-2">
+        {(
+          [
+            ["ALL", "All rails"],
+            ["EDUCATION", "Education"],
+            ["GOVERNMENT", "Government"],
+            ["PRODUCT", "Products"],
+          ] as const
+        ).map(([value, label]) => (
+          <button
+            key={value}
+            type="button"
+            onClick={() => setRailFilter(value)}
+            className={`px-3 py-1.5 rounded-full text-[12px] font-bold ${
+              railFilter === value
+                ? "bg-[#0f766e] text-white"
+                : "bg-surface-container-low text-on-surface-variant hover:bg-surface-container"
+            }`}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
+
       {/* KPIs */}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3">
         {[
           {
-            label: "Authenticated Records",
+            label: "Anchored authenticity records",
             value: records,
             icon: "verified",
             trend: "+2.4%",
@@ -281,10 +317,11 @@ export function DashboardView() {
           <div className="px-5 py-4 border-b border-outline-variant/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div>
               <h2 className="text-[16px] font-bold text-on-surface">
-                Recent credential activity
+                Recent authenticity activity
               </h2>
               <p className="text-[12px] text-on-surface-variant">
-                Search, filter, inspect, or revoke in this demo ledger
+                Credentials, government records, and product marks in this demo
+                ledger
               </p>
             </div>
             <div className="flex flex-wrap gap-2">
@@ -297,7 +334,7 @@ export function DashboardView() {
                 <input
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
-                  placeholder="Name, matric, DID…"
+                  placeholder="Name, reference, DID…"
                   className="h-9 w-48 rounded-lg border border-outline-variant/50 bg-surface-container-low pl-8 pr-3 text-[13px] outline-none focus:border-[#0f766e]"
                 />
               </div>
@@ -320,8 +357,9 @@ export function DashboardView() {
             <table className="w-full text-left text-[13px]">
               <thead className="bg-surface-container-low/80 text-[11px] uppercase tracking-wide text-secondary">
                 <tr>
-                  <th className="px-5 py-3 font-bold">Recipient</th>
-                  <th className="px-3 py-3 font-bold">Credential</th>
+                  <th className="px-5 py-3 font-bold">Holder / subject</th>
+                  <th className="px-3 py-3 font-bold">Record</th>
+                  <th className="px-3 py-3 font-bold">Rail</th>
                   <th className="px-3 py-3 font-bold">Status</th>
                   <th className="px-3 py-3 font-bold">Issued</th>
                   <th className="px-5 py-3 font-bold text-right">Actions</th>
@@ -331,10 +369,10 @@ export function DashboardView() {
                 {rows.length === 0 ? (
                   <tr>
                     <td
-                      colSpan={5}
+                      colSpan={6}
                       className="px-5 py-10 text-center text-on-surface-variant"
                     >
-                      No credentials match this filter.
+                      No records match this filter.
                     </td>
                   </tr>
                 ) : (
@@ -358,6 +396,11 @@ export function DashboardView() {
                         <p className="font-audit-mono text-[10px] text-secondary truncate max-w-[220px]">
                           {credential.did}
                         </p>
+                      </td>
+                      <td className="px-3 py-3">
+                        <span className="inline-flex rounded-full bg-surface-container-low px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-secondary">
+                          {RAIL_LABEL[credential.rail]}
+                        </span>
                       </td>
                       <td className="px-3 py-3">
                         <StatusChip status={credential.status} />

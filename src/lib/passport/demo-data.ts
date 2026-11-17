@@ -5,7 +5,7 @@ import type {
   ShareLink,
 } from "./types";
 
-export const STORAGE_KEY = "legitscan.passport.demo";
+export const STORAGE_KEY = "legitscan.passport.demo.v2";
 
 export const SEED_CREDENTIALS: PassportCredential[] = [
   {
@@ -13,6 +13,7 @@ export const SEED_CREDENTIALS: PassportCredential[] = [
     title: "B.Eng. Electrical & Electronics Engineering",
     issuer: "University of Lagos",
     classification: "First Class Honours",
+    rail: "EDUCATION",
     matricNumber: "180407044",
     did: "did:legitscan:unilag:180407044",
     status: "ACTIVE",
@@ -24,6 +25,7 @@ export const SEED_CREDENTIALS: PassportCredential[] = [
     title: "NYSC Discharge Certificate",
     issuer: "National Youth Service Corps",
     classification: "Completed",
+    rail: "GOVERNMENT",
     matricNumber: "NYSC/LA/24/12345",
     did: "did:legitscan:nysc:la2412345",
     status: "ACTIVE",
@@ -35,11 +37,36 @@ export const SEED_CREDENTIALS: PassportCredential[] = [
     title: "WAEC Senior School Certificate",
     issuer: "WAEC",
     classification: "6 Distinctions",
+    rail: "EDUCATION",
     matricNumber: "4123456789",
     did: "did:legitscan:waec:4123456789",
     status: "ACTIVE",
     issuedAt: "2018-08-20T12:00:00.000Z",
     merkleRoot: "0xbb18f0…de44",
+  },
+  {
+    id: "pc-004",
+    title: "OceanFresh 500ml · Batch 441",
+    issuer: "OceanFresh Beverages",
+    classification: "Genuine product seal",
+    rail: "PRODUCT",
+    matricNumber: "SKU-OF-500ML-BATCH-441",
+    did: "did:legitscan:brand:oceanfresh:441",
+    status: "ACTIVE",
+    issuedAt: "2026-10-02T08:15:00.000Z",
+    merkleRoot: "0xprod55…9aa1",
+  },
+  {
+    id: "pc-005",
+    title: "Lagos Building Plan Approval",
+    issuer: "Lagos State Building Authority",
+    classification: "Residential · Valid",
+    rail: "GOVERNMENT",
+    matricNumber: "LAG/BLD/2024/88421",
+    did: "did:legitscan:lagos:bld:88421",
+    status: "ACTIVE",
+    issuedAt: "2024-06-18T11:00:00.000Z",
+    merkleRoot: "0xgov81a…c4e2",
   },
 ];
 
@@ -62,20 +89,28 @@ export const SEED_ACTIVITY: ActivityEvent[] = [
     id: "pa-1",
     at: "2026-11-16T09:57:00.000Z",
     kind: "VERIFY",
-    label: "WES consular desk",
+    label: "Employer authenticity desk",
     detail: "Verified degree credential · VALID",
     credentialId: "pc-001",
   },
   {
     id: "pa-2",
-    at: "2026-11-10T14:22:00.000Z",
-    kind: "VIEW",
-    label: "Share link opened",
-    detail: "Employer viewed selective disclosure pack",
-    credentialId: "pc-001",
+    at: "2026-11-12T11:20:00.000Z",
+    kind: "VERIFY",
+    label: "Retail / customs scan",
+    detail: "Product mark Batch 441 · VALID",
+    credentialId: "pc-004",
   },
   {
     id: "pa-3",
+    at: "2026-11-10T14:22:00.000Z",
+    kind: "VIEW",
+    label: "Share link opened",
+    detail: "Verifier viewed selective disclosure pack",
+    credentialId: "pc-001",
+  },
+  {
+    id: "pa-4",
     at: "2026-11-01T10:00:00.000Z",
     kind: "SHARE",
     label: "Share created",
@@ -83,11 +118,11 @@ export const SEED_ACTIVITY: ActivityEvent[] = [
     credentialId: "pc-001",
   },
   {
-    id: "pa-4",
+    id: "pa-5",
     at: "2024-11-12T10:22:00.000Z",
     kind: "ISSUE",
     label: "University of Lagos",
-    detail: "Degree credential sealed into passport",
+    detail: "Degree credential sealed into vault",
     credentialId: "pc-001",
   },
 ];
@@ -96,7 +131,7 @@ export function createSeedState(): PassportDemoState {
   return {
     holderName: "Babatunde Adeleke Emmanuel",
     holderEmail: "babatunde@student.unilag.edu.ng",
-    university: "University of Lagos",
+    university: "Multi-rail holder vault",
     credentials: structuredClone(SEED_CREDENTIALS),
     shares: structuredClone(SEED_SHARES),
     activity: structuredClone(SEED_ACTIVITY),
@@ -108,10 +143,14 @@ export function normalizeState(
 ): PassportDemoState {
   const seed = createSeedState();
   if (!partial?.credentials?.length) return seed;
+  const credentials = partial.credentials.map((c) => ({
+    ...c,
+    rail: c.rail ?? ("EDUCATION" as const),
+  }));
   return {
     ...seed,
     ...partial,
-    credentials: partial.credentials,
+    credentials,
     shares: partial.shares?.length ? partial.shares : seed.shares,
     activity: partial.activity?.length ? partial.activity : seed.activity,
   };

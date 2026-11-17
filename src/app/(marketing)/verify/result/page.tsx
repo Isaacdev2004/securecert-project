@@ -28,12 +28,20 @@ export default function VerifyResultPage() {
   return (
     <>
       <PageIntro
-        eyebrow="Verification result"
-        title={credential ? "Authentic & valid." : "No result in session."}
+        eyebrow="Verification result · Evidence pack"
+        title={credential ? "Authentic and ledger-valid." : "No verification in this session."}
         lede={
           credential
-            ? "This credential matched an anchored ledger proof."
-            : "Run a lookup from the verify portal first."
+            ? "This record matched an anchored inclusion proof. Share the evidence pack with employers, agencies, or customers — or revoke access from the holder vault when needed."
+            : "Run a public lookup first. You can verify credentials, official documents, or product marks from the verify portal."
+        }
+        actions={
+          credential
+            ? [
+                { href: "/verify", label: "Verify another", variant: "secondary" },
+                { href: "/onboarding", label: "Issue with LegitScan →", variant: "text" },
+              ]
+            : [{ href: "/verify", label: "Go to public verify" }]
         }
       />
 

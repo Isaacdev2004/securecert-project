@@ -5,10 +5,14 @@ export type CredentialStatus =
   | "REVOKED"
   | "SUSPENDED";
 
+/** Three LegitScan authenticity rails. */
+export type AssetRail = "EDUCATION" | "GOVERNMENT" | "PRODUCT";
+
 export type DemoRecipient = {
   id: string;
   fullName: string;
   email: string;
+  /** Reference ID: matric, file no., SKU/batch, etc. */
   matricNumber: string;
   program: string;
   graduationYear: number;
@@ -19,6 +23,7 @@ export type DemoCredential = {
   recipientId: string;
   did: string;
   status: CredentialStatus;
+  rail: AssetRail;
   credentialType: string;
   title: string;
   classification?: string;
@@ -126,6 +131,7 @@ export type IssueInput = {
   graduationYear: number;
   title: string;
   classification: string;
+  rail?: AssetRail;
 };
 
 export type RecipientInput = {
