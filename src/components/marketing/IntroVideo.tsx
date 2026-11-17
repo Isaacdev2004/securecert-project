@@ -12,9 +12,10 @@ import { Icon } from "@/components/marketing/Icon";
  * Or paste a YouTube/Vimeo embed URL into embedUrl (ready can stay false).
  */
 export const INTRO_VIDEO = {
-  ready: false,
+  ready: true,
   src: "/videos/securecert-intro.mp4",
-  poster: "/videos/securecert-intro-poster.jpg",
+  /** Optional cover image before play. */
+  poster: "" as string,
   embedUrl: "" as string,
 };
 
@@ -55,7 +56,7 @@ export function IntroVideo() {
               <video
                 className="absolute inset-0 h-full w-full object-cover bg-black"
                 src={INTRO_VIDEO.src}
-                poster={INTRO_VIDEO.poster}
+                poster={INTRO_VIDEO.poster || undefined}
                 controls
                 autoPlay
                 playsInline
@@ -64,7 +65,7 @@ export function IntroVideo() {
               <div
                 className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center"
                 style={
-                  INTRO_VIDEO.ready
+                  INTRO_VIDEO.ready && INTRO_VIDEO.poster
                     ? {
                         backgroundImage: `linear-gradient(rgba(11,28,48,0.45), rgba(11,28,48,0.65)), url(${INTRO_VIDEO.poster})`,
                         backgroundSize: "cover",

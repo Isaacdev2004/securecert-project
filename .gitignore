@@ -40,3 +40,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Local source copy of intro video (served from public/videos)
+/Secure Cert.mp4
+
