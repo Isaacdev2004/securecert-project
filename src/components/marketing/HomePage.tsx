@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CredentialCard } from "@/components/marketing/CredentialCard";
+import { EducationLevelLegend } from "@/components/authenticity/VerificationSymbol";
 import { LogoMarquee } from "@/components/marketing/LogoMarquee";
 import { StatsCounters } from "@/components/marketing/StatsCounters";
 import {
@@ -11,23 +12,24 @@ import {
 } from "@/components/marketing/HomeExtras";
 import { IntroVideo } from "@/components/marketing/IntroVideo";
 import { Icon } from "@/components/marketing/Icon";
+import { VerificationSymbol } from "@/components/authenticity/VerificationSymbol";
 
 const BENEFITS = [
   {
-    title: "Issue any official record",
-    body: "Certificates, licences, approvals, permits, and product authenticity marks — template once, bulk-issue at scale, and keep every asset on one governed ledger.",
+    title: "Issue with a unique QR symbol",
+    body: "Every certificate gets its own verification QR. Education levels are segmented by mark colour — orange, blue, green, violet — so authenticity is visible before you even scan.",
     href: "/onboarding",
     link: "See issuer onboarding",
   },
   {
-    title: "Give holders real control",
-    body: "People and product owners get a passport-style vault: selective disclosure, dynamic QR shares, and a full audit of every verify ping — with one-tap revoke.",
+    title: "Holders share the real proof",
+    body: "People keep certificates in a passport vault and share selective QR links — employers and agencies verify without calling the school.",
     href: "/login",
     link: "Open holder passport demo",
   },
   {
-    title: "Verify in seconds, anywhere",
-    body: "Employers, agencies, customs, and consumers scan a QR or enter a code. Hardware-backed seals and Merkle proofs replace couriers, wet stamps, and guesswork.",
+    title: "Scan once. Know if it is genuine.",
+    body: "Public verify resolves the unique QR against the ledger. No courier theatre. No wet-stamp guesswork.",
     href: "/verify",
     link: "Try public verify",
   },
@@ -35,61 +37,61 @@ const BENEFITS = [
 
 const ADVANTAGES = [
   {
-    title: "Three rails, one ledger",
-    body: "Academic & professional credentials, government documents & approvals, and product authenticity — issued and verified on the same trust network.",
+    title: "Segmented education QR marks",
+    body: "Primary (orange), secondary (blue), university (green), and professional (violet) each carry a distinctive verification mark on the shield QR.",
+  },
+  {
+    title: "Separate government seal",
+    body: "Official documents use a different seal design language — so a building approval never looks like a school certificate.",
+  },
+  {
+    title: "Unique code per certificate",
+    body: "No two issued records share a QR payload. Scan resolves that specific credential — not a generic portal screenshot.",
   },
   {
     title: "Public-first verification",
-    body: "No account for basic authenticity checks. High-volume desks for embassies, employers, and authorised partners when you need batch workflows.",
+    body: "Anyone can scan or enter a reference. Authorised desks handle batch employer, embassy, and agency workflows.",
   },
   {
     title: "Lifecycle you can defend",
-    body: "Issue, store, share, verify, and revoke with evidence packs employers, regulators, and customers can trust.",
+    body: "Issue, store, share, verify, and revoke with evidence packs employers and regulators can trust.",
   },
   {
-    title: "Your brand, not ours",
-    body: "White-label templates, CNAME verify portals, and institutional or product seals that keep the issuer front and center.",
-  },
-  {
-    title: "Issuer economy built in",
-    body: "Verification fees, partner wholesale, and webhook telemetry so trust becomes revenue — not only a compliance cost.",
-  },
-  {
-    title: "Self-serve to sovereign",
-    body: "Template-driven issuance for brands and agencies — without a year-long consulting engagement to go live.",
+    title: "Your issuer brand, front and centre",
+    body: "Templates and seals keep the school or agency identity visible — LegitScan is the authenticity layer underneath.",
   },
 ];
 
 const SOLUTIONS = [
   {
-    t: "Education & awarding bodies",
-    d: "Degrees, transcripts, licences, and exam results with embassy-grade verify",
+    t: "Primary & basic education",
+    d: "Leaving certificates with an orange verification mark on a unique shield QR",
+    href: "/onboarding",
+  },
+  {
+    t: "Secondary & exam bodies",
+    d: "WAEC, NECO, and SSCE results with a blue verification mark",
+    href: "/onboarding",
+  },
+  {
+    t: "Universities & awarding bodies",
+    d: "Degrees and transcripts with a green university verification mark",
+    href: "/onboarding",
+  },
+  {
+    t: "Professional bodies",
+    d: "Licences and memberships with a violet professional mark",
     href: "/onboarding",
   },
   {
     t: "Government & agencies",
-    d: "Documents, approvals, permits, and official records with audit trails",
+    d: "Approvals and official records with a distinct government seal QR",
     href: "/onboarding",
   },
   {
-    t: "Brands & manufacturers",
-    d: "Product authenticity marks consumers and retailers can scan instantly",
-    href: "/partners",
-  },
-  {
     t: "Employers & verifiers",
-    d: "Instant authenticity checks — public resolve or authorised desk",
+    d: "Scan the symbol — confirm authenticity in seconds",
     href: "/verify",
-  },
-  {
-    t: "Integration partners",
-    d: "Wholesale APIs, webhooks, and white-label verify for SIS & ERP vendors",
-    href: "/partners",
-  },
-  {
-    t: "Developers",
-    d: "APIs, sandbox keys, and evidence-pack payloads",
-    href: "/developers",
   },
 ];
 
@@ -103,13 +105,14 @@ export function HomePage() {
               Verify · Authenticate · Trust
             </p>
             <h1 className="marketing-rise marketing-display mt-3 text-[clamp(2.4rem,5vw,4.25rem)] text-gray-950">
-              Authenticate credentials, documents, and products — on one network.
+              Unique QR codes that prove a certificate is genuine.
             </h1>
             <p className="marketing-rise-delay mt-6 text-[17px] md:text-[18px] leading-relaxed text-gray-600 max-w-xl">
-              LegitScan is a secure digital credential and official-record
-              platform. Organisations issue and manage certificates, government
-              records, and product authenticity marks — while employers,
-              agencies, and consumers verify authenticity in seconds.
+              Someone presents a primary, secondary, university, or professional
+              certificate — or a government document. Instead of calling the
+              issuer, you scan its unique verification symbol. Education levels
+              use coloured marks; government documents use a separate official
+              seal.
             </p>
             <div className="marketing-rise-delay-2 mt-8 flex flex-wrap gap-3">
               <Link href="/onboarding" className="marketing-btn-primary">
@@ -142,11 +145,12 @@ export function HomePage() {
         <div className="mx-auto max-w-[1200px] px-5 md:px-8 py-20 md:py-28">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="marketing-display text-[clamp(1.85rem,3.5vw,2.75rem)] text-gray-950">
-              One platform for every authenticity workflow
+              From paper doubt to scan-and-know
             </h2>
             <p className="mt-4 text-[17px] leading-relaxed text-gray-600">
-              Beyond certificates — help businesses authenticate products and
-              help agencies issue documents and approvals the world can trust.
+              Issuers seal each certificate with a unique QR verification
+              symbol. Holders share it. Employers and agencies confirm
+              authenticity in seconds — without manual letters or courier stamps.
             </p>
           </div>
 
@@ -206,6 +210,57 @@ export function HomePage() {
       </section>
 
       <HowItWorks />
+
+      <section className="bg-white border-y border-gray-100">
+        <div className="mx-auto max-w-[1200px] px-5 md:px-8 py-20 md:py-24">
+          <div className="max-w-3xl mx-auto text-center">
+            <p className="text-[13px] font-bold tracking-[0.14em] uppercase text-[#0f766e]">
+              Education segmentation
+            </p>
+            <h2 className="marketing-display mt-3 text-[clamp(1.75rem,3.2vw,2.5rem)] text-gray-950">
+              One shield QR. Four coloured marks.
+            </h2>
+            <p className="mt-4 text-[16px] leading-relaxed text-gray-600">
+              The green mark on a university certificate becomes orange for
+              primary and blue for secondary — so the level is visible before
+              you scan. Professional qualifications use a violet mark.
+            </p>
+          </div>
+          <div className="mt-12">
+            <EducationLevelLegend />
+          </div>
+          <div className="mt-14 grid md:grid-cols-2 gap-8 items-center max-w-4xl mx-auto">
+            <div className="rounded-2xl border border-gray-100 bg-[#0b1c3a]/[0.03] p-6 flex flex-col items-center">
+              <VerificationSymbol
+                family="GOVERNMENT"
+                value="did:legitscan:lagos:bld:88421"
+                size="lg"
+                showLegend
+              />
+            </div>
+            <div>
+              <p className="text-[13px] font-bold tracking-[0.14em] uppercase text-[#c9a227]">
+                Government documents
+              </p>
+              <h3 className="mt-2 text-[1.5rem] font-extrabold text-gray-950">
+                A different seal entirely
+              </h3>
+              <p className="mt-3 text-[15px] leading-relaxed text-gray-600">
+                Approvals, permits, and official records use a distinct
+                government seal design — so they are never confused with an
+                education certificate QR.
+              </p>
+              <Link
+                href="/verify"
+                className="mt-5 inline-flex text-[15px] font-semibold text-[#0f766e] hover:underline"
+              >
+                Try verifying a government DID →
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <TestimonialBand />
 
       <section className="bg-gray-50 border-y border-gray-100">
@@ -215,9 +270,10 @@ export function HomePage() {
               Why LegitScan is different
             </h2>
             <p className="mt-4 text-[17px] leading-relaxed text-gray-600">
-              Not another consulting-only identity stack. A self-serve issuance
-              and public verification network for credentials, official records,
-              and product authenticity — with evidence you can defend.
+              Not another consulting-only identity stack. A certificate
+              authenticity network built around unique QR verification symbols —
+              segmented for education levels, with a separate seal for government
+              documents.
             </p>
           </div>
 
@@ -275,9 +331,9 @@ export function HomePage() {
             Ready to get started?
           </h2>
           <p className="mt-4 text-[17px] text-teal-50/85 leading-relaxed">
-            Schedule a demo and see how LegitScan helps organisations issue,
-            manage, and verify credentials, official records, and products —
-            on one trust network.
+            Schedule a demo and see unique QR verification symbols for primary,
+            secondary, university, and professional certificates — plus a
+            separate seal for government documents.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link

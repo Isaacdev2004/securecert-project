@@ -12,9 +12,9 @@ export function MarketingFooter() {
             </span>
           </div>
           <p className="mt-4 text-[14px] leading-relaxed text-white/65 max-w-sm">
-            LegitScan helps organisations issue, manage, store, and verify
-            certificates, government records, and product authenticity marks —
-            Verify · Authenticate · Trust.
+            Unique QR verification symbols for education certificates
+            (primary · secondary · university · professional) and a distinct
+            seal for government documents — Verify · Authenticate · Trust.
           </p>
         </div>
 

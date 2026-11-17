@@ -66,7 +66,9 @@ export function VaultView() {
                   <div className="flex flex-wrap items-center gap-2">
                     <StatusPill status={c.status} />
                     <span className="rounded-full bg-surface-container-low px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-secondary">
-                      {c.rail}
+                      {c.rail === "EDUCATION" && c.educationLevel
+                        ? c.educationLevel
+                        : c.rail}
                     </span>
                   </div>
                   <p className="mt-2 text-[15px] font-bold leading-snug">{c.title}</p>

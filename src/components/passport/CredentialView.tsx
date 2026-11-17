@@ -4,6 +4,8 @@ import { Suspense, useMemo, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { Icon } from "@/components/marketing/Icon";
+import { VerificationSymbol } from "@/components/authenticity/VerificationSymbol";
+import { EDUCATION_LEVELS } from "@/lib/authenticity/symbols";
 import { usePassportStore } from "@/lib/passport/store";
 import { credentialById } from "@/lib/passport/demo-data";
 import { PageFrame, StatusPill, Toast, formatWhen } from "./ui";
@@ -55,27 +57,54 @@ function CredentialInner() {
       </Link>
 
       <div className="rounded-2xl bg-white border border-outline-variant/40 p-5 shadow-sm">
-        <StatusPill status={credential.status} />
-        <h1 className="mt-3 text-[22px] font-extrabold leading-tight">
-          {credential.title}
-        </h1>
-        <p className="mt-1 text-[14px] font-semibold text-[#0f766e]">
-          {credential.classification}
-        </p>
-        <dl className="mt-5 space-y-2.5 text-[13px]">
-          {[
-            ["Issuer", credential.issuer],
-            ["Matric / ID", credential.matricNumber],
-            ["Issued", formatWhen(credential.issuedAt)],
-            ["Merkle", credential.merkleRoot],
-            ["DID", credential.did],
-          ].map(([k, v]) => (
-            <div key={k} className="flex justify-between gap-3">
-              <dt className="text-on-surface-variant">{k}</dt>
-              <dd className="font-semibold text-right break-all max-w-[65%]">{v}</dd>
-            </div>
-          ))}
-        </dl>
+        <div className="flex flex-col sm:flex-row sm:items-start gap-5">
+          <div className="shrink-0 mx-auto sm:mx-0">
+            {credential.rail === "GOVERNMENT" ? (
+              <VerificationSymbol
+                family="GOVERNMENT"
+                value={credential.did}
+                size="md"
+                showLegend
+              />
+            ) : (
+              <VerificationSymbol
+                family="EDUCATION"
+                level={credential.educationLevel ?? "UNIVERSITY"}
+                value={credential.did}
+                size="md"
+                showLegend
+              />
+            )}
+          </div>
+          <div className="min-w-0 flex-1">
+            <StatusPill status={credential.status} />
+            <h1 className="mt-3 text-[22px] font-extrabold leading-tight">
+              {credential.title}
+            </h1>
+            <p className="mt-1 text-[14px] font-semibold text-[#0f766e]">
+              {credential.classification}
+            </p>
+            {credential.rail === "EDUCATION" && credential.educationLevel && (
+              <p className="mt-2 text-[12px] font-semibold" style={{ color: EDUCATION_LEVELS[credential.educationLevel].markColor }}>
+                {EDUCATION_LEVELS[credential.educationLevel].label} · unique QR mark
+              </p>
+            )}
+            <dl className="mt-5 space-y-2.5 text-[13px]">
+              {[
+                ["Issuer", credential.issuer],
+                ["Matric / ID", credential.matricNumber],
+                ["Issued", formatWhen(credential.issuedAt)],
+                ["Merkle", credential.merkleRoot],
+                ["DID", credential.did],
+              ].map(([k, v]) => (
+                <div key={k} className="flex justify-between gap-3">
+                  <dt className="text-on-surface-variant">{k}</dt>
+                  <dd className="font-semibold text-right break-all max-w-[65%]">{v}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </div>
       </div>
 
       <div className="grid grid-cols-2 gap-2">

@@ -4,6 +4,8 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { Icon } from "@/components/marketing/Icon";
+import { VerificationSymbol } from "@/components/authenticity/VerificationSymbol";
+import { EDUCATION_LEVELS } from "@/lib/authenticity/symbols";
 import { useInstitutionStore } from "@/lib/institution/store";
 import { credentialWithRecipient } from "@/lib/institution/demo-data";
 import { PageFrame, StatusChip, Toast, formatWhen } from "./ui";
@@ -75,6 +77,38 @@ export function CredentialDetailView() {
           <p className="mt-1 text-[14px] text-[#0f766e] font-semibold">
             {credential.classification || "—"}
           </p>
+          {credential.rail === "EDUCATION" && credential.educationLevel && (
+            <p
+              className="mt-2 text-[13px] font-semibold"
+              style={{ color: EDUCATION_LEVELS[credential.educationLevel].markColor }}
+            >
+              {EDUCATION_LEVELS[credential.educationLevel].label} certificate ·
+              unique QR verification mark
+            </p>
+          )}
+          {credential.rail === "GOVERNMENT" && (
+            <p className="mt-2 text-[13px] font-semibold text-[#c9a227]">
+              Government document · official seal QR
+            </p>
+          )}
+        </div>
+        <div className="shrink-0">
+          {credential.rail === "GOVERNMENT" ? (
+            <VerificationSymbol
+              family="GOVERNMENT"
+              value={credential.did}
+              size="md"
+              showLegend
+            />
+          ) : credential.rail === "EDUCATION" ? (
+            <VerificationSymbol
+              family="EDUCATION"
+              level={credential.educationLevel ?? "UNIVERSITY"}
+              value={credential.did}
+              size="md"
+              showLegend
+            />
+          ) : null}
         </div>
         <div className="flex flex-wrap gap-2">
           <button

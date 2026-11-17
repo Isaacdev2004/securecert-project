@@ -1,5 +1,7 @@
 export type AssetRail = "EDUCATION" | "GOVERNMENT" | "PRODUCT";
 
+export type { EducationLevel } from "@/lib/authenticity/symbols";
+
 export type PassportCredentialStatus = "ACTIVE" | "REVOKED" | "EXPIRED";
 
 export type PassportCredential = {
@@ -8,6 +10,8 @@ export type PassportCredential = {
   issuer: string;
   classification: string;
   rail: AssetRail;
+  /** Education QR mark colour segment when rail is EDUCATION. */
+  educationLevel?: import("@/lib/authenticity/symbols").EducationLevel | null;
   matricNumber: string;
   did: string;
   status: PassportCredentialStatus;

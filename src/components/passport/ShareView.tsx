@@ -3,6 +3,7 @@
 import { FormEvent, Suspense, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { Icon } from "@/components/marketing/Icon";
+import { VerificationSymbol } from "@/components/authenticity/VerificationSymbol";
 import { usePassportStore } from "@/lib/passport/store";
 import { credentialById } from "@/lib/passport/demo-data";
 import { PageFrame, Toast, formatWhen } from "./ui";
@@ -173,10 +174,29 @@ function ShareInner() {
             </button>
           </div>
           <div className="mt-4 flex justify-center">
-            <div className="h-36 w-36 rounded-xl bg-white border border-dashed border-[#0f766e]/40 flex flex-col items-center justify-center text-[#0f766e]">
-              <Icon name="qr_code_2" size={64} />
-              <p className="text-[10px] font-bold mt-1">QR preview</p>
-            </div>
+            {(() => {
+              const cred = credentialById(state, selectedId);
+              const url = `${typeof window !== "undefined" ? window.location.origin : ""}/verify?token=${lastToken}`;
+              if (cred?.rail === "GOVERNMENT") {
+                return (
+                  <VerificationSymbol
+                    family="GOVERNMENT"
+                    value={url || cred.did}
+                    size="md"
+                    showLegend
+                  />
+                );
+              }
+              return (
+                <VerificationSymbol
+                  family="EDUCATION"
+                  level={cred?.educationLevel ?? "UNIVERSITY"}
+                  value={url || cred?.did || lastToken}
+                  size="md"
+                  showLegend
+                />
+              );
+            })()}
           </div>
         </div>
       )}

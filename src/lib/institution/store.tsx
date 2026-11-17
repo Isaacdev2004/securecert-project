@@ -136,12 +136,22 @@ export function InstitutionStoreProvider({ children }: { children: ReactNode }) 
           did: makeDid(input.matricNumber),
           status: "ISSUED" as const,
           rail: input.rail ?? "EDUCATION",
+          educationLevel:
+            input.rail === "GOVERNMENT" || input.rail === "PRODUCT"
+              ? null
+              : (input.educationLevel ?? "UNIVERSITY"),
           credentialType:
             input.rail === "PRODUCT"
               ? "ProductAuthenticityCredential"
               : input.rail === "GOVERNMENT"
                 ? "GovernmentRecordCredential"
-                : "UniversityDegreeCredential",
+                : input.educationLevel === "PRIMARY"
+                  ? "PrimarySchoolCertificate"
+                  : input.educationLevel === "SECONDARY"
+                    ? "SecondarySchoolCertificate"
+                    : input.educationLevel === "PROFESSIONAL"
+                      ? "ProfessionalQualificationCredential"
+                      : "UniversityDegreeCredential",
           title: input.title,
           classification: input.classification,
           issuedAt: now,

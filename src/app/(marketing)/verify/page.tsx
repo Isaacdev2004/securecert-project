@@ -41,12 +41,12 @@ export default function VerifyPage() {
   return (
     <>
       <PageIntro
-        eyebrow="Public verify · No account required"
-        title="Scan once. Know if it is real."
-        lede="Check a certificate, government document, approval, or product authenticity mark. Enter a DID, reference ID, serial, or nonce — basic lookups need no login."
+        eyebrow="Public verify · Unique QR symbols"
+        title="Scan the certificate QR. Know if it is genuine."
+        lede="Every education certificate carries a distinctive verification symbol — orange for primary, blue for secondary, green for university, violet for professional. Government documents use a separate official seal. Enter a DID or reference ID to resolve authenticity — no account required."
         actions={[
           { href: "/login", label: "Open verifier desk", variant: "secondary" },
-          { href: "/onboarding", label: "Issue on LegitScan →", variant: "text" },
+          { href: "/onboarding", label: "Issue with LegitScan →", variant: "text" },
         ]}
       />
 
@@ -64,7 +64,7 @@ export default function VerifyPage() {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 className="mt-2 w-full h-12 rounded-xl border border-gray-200 px-4 text-[15px] outline-none focus:border-[#0f766e] focus:ring-2 focus:ring-[#0f766e]/20"
-                placeholder="e.g. 180407044"
+                placeholder="e.g. 180407044 · 4123456789 · did:legitscan:…"
                 required
               />
             </label>

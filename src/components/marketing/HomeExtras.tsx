@@ -5,23 +5,23 @@ export function HowItWorks() {
   const steps = [
     {
       n: "01",
-      t: "Design & map",
-      d: "Brand templates for credentials, documents, or products — then connect custody for your tenancy.",
+      t: "Choose the symbol",
+      d: "Pick education level (mark colour) or government seal — each template binds a unique QR design.",
     },
     {
       n: "02",
-      t: "Issue at scale",
-      d: "Seal single records or bulk cohorts into the registry with cryptographic inclusion proofs.",
+      t: "Issue the certificate",
+      d: "Seal the record into the ledger. Every certificate gets its own verification QR payload.",
     },
     {
       n: "03",
-      t: "Holders control",
-      d: "People and product owners share selective proofs via QR or link — and revoke in one tap.",
+      t: "Holder shares",
+      d: "The graduate or citizen shares the QR from their vault — selective fields, one-tap revoke.",
     },
     {
       n: "04",
-      t: "World verifies",
-      d: "Employers, agencies, customs, and consumers resolve authenticity in milliseconds.",
+      t: "Anyone verifies",
+      d: "Scan the symbol. Confirm it is genuine — without calling the school or agency.",
     },
   ];
 
@@ -113,11 +113,11 @@ export function FaqSection() {
   const faqs = [
     {
       q: "Is LegitScan only for universities?",
-      a: "No. Education is one rail. The same platform supports government documents and approvals, plus product authenticity for brands and manufacturers.",
+      a: "No. Education certificates are segmented: primary (orange mark), secondary (blue), university (green), and professional (violet). Government documents use a separate official seal design.",
     },
     {
       q: "How do people verify?",
-      a: "Public resolve for a single QR or code — no account required. Authorised desks handle batch employer, embassy, customs, and partner workflows.",
+      a: "Scan the unique QR on the certificate — or enter the DID / reference. No account required for a public lookup. Authorised desks handle batch employer and embassy workflows.",
     },
     {
       q: "What about privacy?",

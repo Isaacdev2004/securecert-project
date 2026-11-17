@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { Icon } from "@/components/marketing/Icon";
+import { VerificationSymbol } from "@/components/authenticity/VerificationSymbol";
 import { useInstitutionStore } from "@/lib/institution/store";
 import { PageFrame, Toast } from "./ui";
 
@@ -32,7 +33,8 @@ export function DesignerView() {
           Certificate designer
         </h1>
         <p className="text-[14px] text-on-surface-variant mt-1">
-          Brand parchment templates used at issuance time.
+          Templates bind each certificate to a unique QR verification symbol —
+          education level marks or the government seal.
         </p>
       </div>
 
@@ -153,17 +155,28 @@ export function DesignerView() {
           <p className="mt-1 text-[18px] font-semibold" style={{ color: active.accent }}>
             B.Eng. Electrical &amp; Electronics Engineering
           </p>
-          <div className="mt-10 flex items-center gap-3">
-            <span
-              className="h-12 w-12 rounded-full text-white inline-flex items-center justify-center"
-              style={{ background: active.accent }}
-            >
-              <Icon name="verified" size={22} filled />
-            </span>
+          <div className="mt-8 flex flex-col sm:flex-row items-center gap-4">
+            {active.symbolFamily === "GOVERNMENT" ? (
+              <VerificationSymbol
+                family="GOVERNMENT"
+                value={`tpl:${active.id}`}
+                size="sm"
+              />
+            ) : (
+              <VerificationSymbol
+                family="EDUCATION"
+                level={active.educationLevel ?? "UNIVERSITY"}
+                value={`tpl:${active.id}`}
+                size="sm"
+              />
+            )}
             <div>
               <p className="text-[13px] font-bold">{active.sealLabel}</p>
               <p className="text-[11px] text-on-surface-variant font-audit-mono">
                 {state.chainId}
+              </p>
+              <p className="mt-1 text-[11px] text-on-surface-variant">
+                Unique QR printed on every issued certificate
               </p>
             </div>
           </div>

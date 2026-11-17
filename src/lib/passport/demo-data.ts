@@ -5,7 +5,7 @@ import type {
   ShareLink,
 } from "./types";
 
-export const STORAGE_KEY = "legitscan.passport.demo.v2";
+export const STORAGE_KEY = "legitscan.passport.demo.v3";
 
 export const SEED_CREDENTIALS: PassportCredential[] = [
   {
@@ -14,6 +14,7 @@ export const SEED_CREDENTIALS: PassportCredential[] = [
     issuer: "University of Lagos",
     classification: "First Class Honours",
     rail: "EDUCATION",
+    educationLevel: "UNIVERSITY",
     matricNumber: "180407044",
     did: "did:legitscan:unilag:180407044",
     status: "ACTIVE",
@@ -26,6 +27,7 @@ export const SEED_CREDENTIALS: PassportCredential[] = [
     issuer: "National Youth Service Corps",
     classification: "Completed",
     rail: "GOVERNMENT",
+    educationLevel: null,
     matricNumber: "NYSC/LA/24/12345",
     did: "did:legitscan:nysc:la2412345",
     status: "ACTIVE",
@@ -38,6 +40,7 @@ export const SEED_CREDENTIALS: PassportCredential[] = [
     issuer: "WAEC",
     classification: "6 Distinctions",
     rail: "EDUCATION",
+    educationLevel: "SECONDARY",
     matricNumber: "4123456789",
     did: "did:legitscan:waec:4123456789",
     status: "ACTIVE",
@@ -46,22 +49,37 @@ export const SEED_CREDENTIALS: PassportCredential[] = [
   },
   {
     id: "pc-004",
-    title: "OceanFresh 500ml · Batch 441",
-    issuer: "OceanFresh Beverages",
-    classification: "Genuine product seal",
-    rail: "PRODUCT",
-    matricNumber: "SKU-OF-500ML-BATCH-441",
-    did: "did:legitscan:brand:oceanfresh:441",
+    title: "Primary School Leaving Certificate",
+    issuer: "Lagos State Universal Basic Education Board",
+    classification: "Completed",
+    rail: "EDUCATION",
+    educationLevel: "PRIMARY",
+    matricNumber: "PSLC/2012/88421",
+    did: "did:legitscan:primary:pslc201288421",
     status: "ACTIVE",
-    issuedAt: "2026-10-02T08:15:00.000Z",
-    merkleRoot: "0xprod55…9aa1",
+    issuedAt: "2012-07-15T10:00:00.000Z",
+    merkleRoot: "0xprim12…aa01",
   },
   {
     id: "pc-005",
+    title: "ICAN Associate Membership",
+    issuer: "Institute of Chartered Accountants of Nigeria",
+    classification: "ACA · Active",
+    rail: "EDUCATION",
+    educationLevel: "PROFESSIONAL",
+    matricNumber: "ICAN/ACA/77821",
+    did: "did:legitscan:ican:aca77821",
+    status: "ACTIVE",
+    issuedAt: "2023-05-20T12:00:00.000Z",
+    merkleRoot: "0xprof77…bb02",
+  },
+  {
+    id: "pc-006",
     title: "Lagos Building Plan Approval",
     issuer: "Lagos State Building Authority",
     classification: "Residential · Valid",
     rail: "GOVERNMENT",
+    educationLevel: null,
     matricNumber: "LAG/BLD/2024/88421",
     did: "did:legitscan:lagos:bld:88421",
     status: "ACTIVE",
@@ -97,8 +115,8 @@ export const SEED_ACTIVITY: ActivityEvent[] = [
     id: "pa-2",
     at: "2026-11-12T11:20:00.000Z",
     kind: "VERIFY",
-    label: "Retail / customs scan",
-    detail: "Product mark Batch 441 · VALID",
+    label: "Agency document desk",
+    detail: "Primary leaving certificate · orange mark · VALID",
     credentialId: "pc-004",
   },
   {
@@ -146,6 +164,12 @@ export function normalizeState(
   const credentials = partial.credentials.map((c) => ({
     ...c,
     rail: c.rail ?? ("EDUCATION" as const),
+    educationLevel:
+      c.educationLevel !== undefined
+        ? c.educationLevel
+        : c.rail === "GOVERNMENT" || c.rail === "PRODUCT"
+          ? null
+          : ("UNIVERSITY" as const),
   }));
   return {
     ...seed,

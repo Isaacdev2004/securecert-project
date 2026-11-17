@@ -18,9 +18,9 @@ const META: Record<
 > = {
   institution: {
     org: "Lagos Authenticity Hub",
-    eyebrow: "Issuer · Education · Government · Products",
+    eyebrow: "Issuer · Unique QR · Education levels · Gov seal",
     search: "Search records, DID, serial, reference…",
-    statuses: [{ label: "3 rails live" }, { label: "Webhooks active" }],
+    statuses: [{ label: "QR symbols live" }, { label: "Webhooks active" }],
     icon: "verified_user",
   },
   partner: {
@@ -39,7 +39,7 @@ const META: Record<
   },
   verifier: {
     org: "National Authenticity Desk",
-    eyebrow: "Verify credentials · documents · products",
+    eyebrow: "Scan unique QR · Education marks · Gov seal",
     search: "Search DID, serial, batch, reference…",
     statuses: [{ label: "HSM validated" }, { label: "Public + desk" }],
     icon: "fact_check",

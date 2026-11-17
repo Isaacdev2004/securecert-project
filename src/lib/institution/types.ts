@@ -5,8 +5,10 @@ export type CredentialStatus =
   | "REVOKED"
   | "SUSPENDED";
 
-/** Three LegitScan authenticity rails. */
+/** Document family / authenticity rails. */
 export type AssetRail = "EDUCATION" | "GOVERNMENT" | "PRODUCT";
+
+export type { EducationLevel } from "@/lib/authenticity/symbols";
 
 export type DemoRecipient = {
   id: string;
@@ -24,6 +26,8 @@ export type DemoCredential = {
   did: string;
   status: CredentialStatus;
   rail: AssetRail;
+  /** Education segmentation for unique QR verification mark colour. */
+  educationLevel?: import("@/lib/authenticity/symbols").EducationLevel | null;
   credentialType: string;
   title: string;
   classification?: string;
@@ -75,6 +79,9 @@ export type CertificateTemplate = {
   name: string;
   accent: string;
   sealLabel: string;
+  /** EDUCATION shield (level mark) or GOVERNMENT seal. */
+  symbolFamily?: "EDUCATION" | "GOVERNMENT";
+  educationLevel?: import("@/lib/authenticity/symbols").EducationLevel | null;
   fields: TemplateField[];
   updatedAt: string;
 };
@@ -132,6 +139,7 @@ export type IssueInput = {
   title: string;
   classification: string;
   rail?: AssetRail;
+  educationLevel?: import("@/lib/authenticity/symbols").EducationLevel | null;
 };
 
 export type RecipientInput = {

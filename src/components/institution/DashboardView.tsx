@@ -20,7 +20,7 @@ const STREAM_TEMPLATES = [
 ];
 
 const RAIL_LABEL: Record<AssetRail, string> = {
-  EDUCATION: "Education",
+  EDUCATION: "Education · level marks",
   GOVERNMENT: "Government",
   PRODUCT: "Product",
 };
@@ -169,7 +169,7 @@ export function DashboardView() {
         <div className="max-w-3xl">
           <div className="flex flex-wrap items-center gap-2">
             <span className="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container text-[11px] font-bold uppercase tracking-wide">
-              Multi-rail issuer
+              Unique QR issuer
             </span>
             <span className="font-audit-mono text-[11px] text-secondary">
               CHAIN_ID: {state.chainId}
@@ -399,7 +399,10 @@ export function DashboardView() {
                       </td>
                       <td className="px-3 py-3">
                         <span className="inline-flex rounded-full bg-surface-container-low px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-secondary">
-                          {RAIL_LABEL[credential.rail]}
+                          {credential.rail === "EDUCATION" &&
+                          credential.educationLevel
+                            ? credential.educationLevel
+                            : RAIL_LABEL[credential.rail]}
                         </span>
                       </td>
                       <td className="px-3 py-3">
