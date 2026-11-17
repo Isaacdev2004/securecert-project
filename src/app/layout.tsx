@@ -27,6 +27,14 @@ export const metadata: Metadata = {
   title: "SecureCert — Sovereign Credential Platform",
   description:
     "Tamper-proof academic & professional credential issuance, verification, and passport infrastructure.",
+  icons: {
+    icon: [
+      { url: "/brand/securecert-mark.png", type: "image/png", sizes: "32x32" },
+      { url: "/brand/securecert-mark.png", type: "image/png", sizes: "180x180" },
+    ],
+    apple: [{ url: "/brand/securecert-mark.png", type: "image/png", sizes: "180x180" }],
+    shortcut: "/brand/securecert-mark.png",
+  },
 };
 
 export default function RootLayout({

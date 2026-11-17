@@ -89,20 +89,20 @@ const PARTNER_MAP: Record<string, string> = {
   "connected-client-schools-tenancies": "/partner/schools",
   "sovereign-tenants-universities": "/partner/schools",
   "tenant-partners": "/partner/schools",
-  "registered-applications-services": "/partner/apikeys",
-  "api-keys-oauth-apps": "/partner/apikeys",
-  "api-keys-oauth-credentials": "/partner/apikeys",
-  "api-keys-automated-ingress": "/partner/apikeys",
+  "registered-applications-services": "/partner/apikeys?tab=apps",
+  "api-keys-oauth-apps": "/partner/apikeys?tab=keys",
+  "api-keys-oauth-credentials": "/partner/apikeys?tab=keys",
+  "api-keys-automated-ingress": "/partner/apikeys?tab=keys",
   "webhooks-event-streams": "/partner/webhooks",
   "webhook-subscriptions-delivery": "/partner/webhooks",
   "field-mapping-schemas": "/partner/mapping",
   "whitelabel-custom-verification": "/partner/customizer",
-  "issuance-volume-usage-invoices": "/partner/billing",
-  "reseller-commission-license-tiers": "/partner/billing",
+  "issuance-volume-usage-invoices": "/partner/billing?tab=usage",
+  "reseller-commission-license-tiers": "/partner/billing?tab=commissions",
   "sandbox-simulation-runner": "/partner/sandbox",
   "request-logs-telemetry": "/partner/logs",
   "system-telemetry": "/partner/logs",
-  "partner-support-sla": "/partner",
+  "partner-support-sla": "/partner?panel=support",
   "sdks-developer-docs": "/developers",
   "developer-apis": "/developers",
 };
@@ -116,19 +116,19 @@ const ADMIN_MAP: Record<string, string> = {
   "hsm-root-signers-key-enclaves": "/admin/hsm",
   "hsm-root-signers-cryptographic-enclaves": "/admin/hsm",
   "hsm-key-lifecycle": "/admin/hsm",
-  "global-cryptographic-ledgers": "/admin/hsm",
+  "global-cryptographic-ledgers": "/admin/hsm?panel=ledgers",
   "wholesale-tariffs-subscriptions": "/admin/tariffs",
   "wholesale-tariffs-global-quotas": "/admin/tariffs",
   "evaluator-tariffs-fx-escrow": "/admin/tariffs",
-  "global-audit-trail-access-policies": "/admin/tenants",
-  "global-audit-iam-root": "/admin/tenants",
-  "apex-dns-tls-enforcement": "/admin/shards",
-  "ndpa-statutory-compliance-audits": "/admin/tenants",
-  "sovereign-tenants-universities": "/admin/tenants",
-  "government-state-ministries": "/admin/tenants",
-  "exam-bodies-national": "/admin/tenants",
-  "software-vendors-resellers": "/admin/tenants",
-  "tenant-partners": "/admin/tenants",
+  "global-audit-trail-access-policies": "/admin/tenants?view=audit",
+  "global-audit-iam-root": "/admin/tenants?view=audit",
+  "apex-dns-tls-enforcement": "/admin/shards?panel=dns",
+  "ndpa-statutory-compliance-audits": "/admin/tenants?view=compliance",
+  "sovereign-tenants-universities": "/admin/tenants?sector=ACADEMIA",
+  "government-state-ministries": "/admin/tenants?sector=GOV",
+  "exam-bodies-national": "/admin/tenants?sector=EXAM",
+  "software-vendors-resellers": "/admin/tenants?sector=PARTNER",
+  "tenant-partners": "/admin/tenants?sector=PARTNER",
   // Secondary admin nav items that share names with other portals
   "credentials-registry": "/admin/tenants",
   credentials: "/admin/tenants",
@@ -136,27 +136,27 @@ const ADMIN_MAP: Record<string, string> = {
   "batch-issuance": "/admin/tenants",
   "schema-designer": "/admin/hsm",
   designer: "/admin/hsm",
-  "revocation-registry": "/admin/tenants",
-  "revocations-anomaly-watch": "/admin/tenants",
-  "revocation-blacklist-anomaly-watch": "/admin/tenants",
-  "cryptographic-audit": "/admin/hsm",
+  "revocation-registry": "/admin/tenants?view=anomalies",
+  "revocations-anomaly-watch": "/admin/tenants?view=anomalies",
+  "revocation-blacklist-anomaly-watch": "/admin/tenants?view=anomalies",
+  "cryptographic-audit": "/admin/hsm?panel=ledgers",
   "system-telemetry": "/admin/shards",
   overview: "/admin/tenants",
   "overview-dashboard": "/admin/tenants",
 };
 
-/** Embassy / WES desk — single workspace for now */
+/** Embassy / WES desk — interactive portal */
 const VERIFIER_MAP: Record<string, string> = {
   "batch-single-verification-desk": "/verifier",
-  "cohort-candidate-ingestion": "/verifier",
-  "live-merkle-proof-inspector": "/verifier",
-  "diplomatic-dossiers-w3c-transcripts": "/verifier",
-  "ndpa-blinded-consent-grants": "/verifier",
-  "tamper-revocation-radar": "/verifier",
-  "evaluator-tariffs-fx-escrow": "/verifier",
-  "api-keys-automated-ingress": "/verifier",
-  "audit-logs-diplomatic-dispatches": "/verifier",
-  "verification-activity": "/verifier",
+  "cohort-candidate-ingestion": "/verifier/ingestion",
+  "live-merkle-proof-inspector": "/verifier/proofs",
+  "diplomatic-dossiers-w3c-transcripts": "/verifier/dossiers",
+  "ndpa-blinded-consent-grants": "/verifier/consents",
+  "tamper-revocation-radar": "/verifier/radar",
+  "evaluator-tariffs-fx-escrow": "/verifier/billing",
+  "api-keys-automated-ingress": "/verifier/api",
+  "audit-logs-diplomatic-dispatches": "/verifier/audit",
+  "verification-activity": "/verifier/audit",
   overview: "/verifier",
   "overview-dashboard": "/verifier",
 };
@@ -271,6 +271,22 @@ export function resolveLabelPath(
   }
 
   if (portal === "verifier") {
+    if (text.includes("ingest") || text.includes("cohort") || text.includes("batch ingress"))
+      return "/verifier/ingestion";
+    if (text.includes("merkle") || text.includes("proof")) return "/verifier/proofs";
+    if (text.includes("dossier") || text.includes("transcript") || text.includes("diplomatic"))
+      return "/verifier/dossiers";
+    if (text.includes("consent") || text.includes("ndpa") || text.includes("blind"))
+      return "/verifier/consents";
+    if (text.includes("tamper") || text.includes("radar") || text.includes("revok"))
+      return "/verifier/radar";
+    if (text.includes("tariff") || text.includes("escrow") || text.includes("billing") || text.includes("fx"))
+      return "/verifier/billing";
+    if (text.includes("api") || text.includes("ingress") || text.includes("oauth"))
+      return "/verifier/api";
+    if (text.includes("audit") || text.includes("dispatch")) return "/verifier/audit";
+    if (text.includes("desk") || text.includes("batch") || text.includes("single") || text.includes("overview"))
+      return "/verifier";
     return "/verifier";
   }
 

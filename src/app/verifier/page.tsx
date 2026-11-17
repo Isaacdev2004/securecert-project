@@ -1,8 +1,7 @@
-'use client';
+"use client";
 
-import { StitchRenderer } from "@/components/StitchRenderer";
-import { html, bodyClass } from "@/content/screens/verifier";
+import { DeskView } from "@/components/verifier/DeskView";
 
 export default function Page() {
-  return <StitchRenderer html={html} bodyClass={bodyClass} shell="verifier" />;
+  return <DeskView />;
 }

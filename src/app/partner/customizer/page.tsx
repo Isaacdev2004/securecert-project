@@ -1,8 +1,7 @@
-'use client';
+"use client";
 
-import { StitchRenderer } from "@/components/StitchRenderer";
-import { html, bodyClass } from "@/content/screens/partner-customizer";
+import { CustomizerView } from "@/components/partner/CustomizerView";
 
 export default function Page() {
-  return <StitchRenderer html={html} bodyClass={bodyClass} shell="partner" />;
+  return <CustomizerView />;
 }

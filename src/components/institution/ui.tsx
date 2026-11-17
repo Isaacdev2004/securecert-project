@@ -65,7 +65,7 @@ export function Toast({
 
 export function PageFrame({ children }: { children: React.ReactNode }) {
   return (
-    <div className="px-gutter-lg py-space-lg flex flex-col gap-space-lg max-w-[1600px] w-full mx-auto">
+    <div className="px-4 sm:px-6 py-5 sm:py-6 flex flex-col gap-5 sm:gap-6 max-w-[1600px] w-full mx-auto">
       {children}
     </div>
   );

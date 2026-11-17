@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BrandLogo } from "@/components/BrandLogo";
 
 type Props = {
   children: React.ReactNode;
@@ -22,13 +23,8 @@ export function AuthShell({
     <div className="marketing-root min-h-screen bg-gray-50 flex flex-col">
       <header className="border-b border-gray-100 bg-white">
         <div className="mx-auto max-w-[1200px] px-5 md:px-8 h-16 flex items-center justify-between gap-4">
-          <Link href="/" className="flex items-center gap-2.5">
-            <span className="h-9 w-9 rounded-lg bg-[#0f766e] text-white flex items-center justify-center">
-              <span className="material-symbols-outlined text-[20px]">verified</span>
-            </span>
-            <span className="text-[1.15rem] font-extrabold text-gray-950">
-              SecureCert
-            </span>
+          <Link href="/" className="flex items-center" aria-label="SecureCert home">
+            <BrandLogo height={34} />
           </Link>
 
           <Link

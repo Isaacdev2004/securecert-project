@@ -164,8 +164,8 @@ export function DashboardView() {
               CHAIN_ID: {state.chainId}
             </span>
           </div>
-          <h1 className="mt-2 text-[28px] font-bold tracking-tight text-on-surface">
-            Institutional Trust &amp; Issuance Overview
+          <h1 className="mt-2 text-[24px] sm:text-[28px] font-bold tracking-tight text-on-surface">
+            Overview
           </h1>
           <p className="mt-1 text-[14px] text-on-surface-variant">
             {state.tenantName} · live demo workspace for registrar operations
@@ -173,7 +173,7 @@ export function DashboardView() {
         </div>
 
         <div className="flex flex-wrap items-center gap-2">
-          <label className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-surface-container-low text-on-surface-variant text-[13px] font-semibold shadow-sm">
+          <label className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-surface-container-low text-on-surface-variant text-[13px] font-semibold">
             <Icon name="calendar_today" size={16} />
             <select
               value={range}
@@ -192,26 +192,27 @@ export function DashboardView() {
           <button
             type="button"
             onClick={exportDossier}
-            className="px-3 py-2 rounded-lg bg-white text-on-surface text-[13px] font-semibold shadow-sm border border-outline-variant/40 hover:bg-surface-container-low inline-flex items-center gap-1.5"
+            className="px-3 py-2 rounded-lg bg-surface-container-lowest text-on-surface text-[13px] font-semibold border border-outline-variant/40 hover:bg-surface-container-low inline-flex items-center gap-1.5"
           >
             <Icon name="download" size={16} />
-            Export Audit Dossier
+            <span className="hidden sm:inline">Export dossier</span>
+            <span className="sm:hidden">Export</span>
           </button>
           <button
             type="button"
             onClick={() => router.push("/institution/issue")}
-            className="px-3 py-2 rounded-lg bg-[#0f766e] text-white text-[13px] font-semibold shadow-sm hover:bg-[#0d9488] inline-flex items-center gap-1.5"
+            className="px-3 py-2 rounded-lg bg-[#0f766e] text-white text-[13px] font-semibold hover:bg-[#0d9488] inline-flex items-center gap-1.5"
           >
             <Icon name="add_moderator" size={16} />
-            Issue New Credential
+            Issue credential
           </button>
           <button
             type="button"
             onClick={() => setRegisterOpen(true)}
-            className="px-3 py-2 rounded-lg bg-[#134e4a] text-white text-[13px] font-semibold shadow-sm hover:opacity-95 inline-flex items-center gap-1.5"
+            className="px-3 py-2 rounded-lg bg-[#134e4a] text-white text-[13px] font-semibold hover:opacity-95 inline-flex items-center gap-1.5"
           >
             <Icon name="sync_saved_locally" size={16} />
-            Register Existing
+            Register existing
           </button>
         </div>
       </div>

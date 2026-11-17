@@ -1,8 +1,12 @@
-'use client';
+"use client";
 
-import { StitchRenderer } from "@/components/StitchRenderer";
-import { html, bodyClass } from "@/content/screens/partner-billing";
+import { Suspense } from "react";
+import { BillingView } from "@/components/partner/BillingView";
 
 export default function Page() {
-  return <StitchRenderer html={html} bodyClass={bodyClass} shell="partner" />;
+  return (
+    <Suspense fallback={<div className="pt-24 px-6">Loading…</div>}>
+      <BillingView />
+    </Suspense>
+  );
 }

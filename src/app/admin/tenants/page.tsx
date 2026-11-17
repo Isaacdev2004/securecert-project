@@ -1,8 +1,12 @@
-'use client';
+"use client";
 
-import { StitchRenderer } from "@/components/StitchRenderer";
-import { html, bodyClass } from "@/content/screens/admin-tenants";
+import { Suspense } from "react";
+import { TenantsView } from "@/components/admin/TenantsView";
 
 export default function Page() {
-  return <StitchRenderer html={html} bodyClass={bodyClass} shell="admin" />;
+  return (
+    <Suspense fallback={<div className="pt-24 px-6">Loading…</div>}>
+      <TenantsView />
+    </Suspense>
+  );
 }

@@ -174,7 +174,11 @@ export function StitchRenderer({
         suppressHydrationWarning
         dangerouslySetInnerHTML={{ __html: contentHtml }}
       />
-      {!isEmbedded && <RoleSwitcher />}
+      {!isEmbedded && (
+        <div className="fixed top-3 right-4 z-[100]">
+          <RoleSwitcher />
+        </div>
+      )}
     </>
   );
 }

@@ -1,16 +1,15 @@
 import Link from "next/link";
-import { Icon } from "@/components/marketing/Icon";
+import { BrandLogo } from "@/components/BrandLogo";
 
 export function MarketingFooter() {
   return (
     <footer className="bg-[#0b1c30] text-white">
       <div className="mx-auto max-w-[1200px] px-5 md:px-8 py-16 md:py-20 grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
         <div>
-          <div className="flex items-center gap-2.5">
-            <span className="h-9 w-9 rounded-lg bg-[#0f766e] flex items-center justify-center text-white">
-              <Icon name="verified" size={20} filled weight={600} />
+          <div className="flex items-center">
+            <span className="rounded-md bg-white px-1.5 py-1 inline-flex">
+              <BrandLogo height={32} />
             </span>
-            <span className="text-[1.25rem] font-extrabold">SecureCert</span>
           </div>
           <p className="mt-4 text-[14px] leading-relaxed text-white/65 max-w-sm">
             SecureCert is the sovereign digital credential platform enabling

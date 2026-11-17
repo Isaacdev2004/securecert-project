@@ -1,8 +1,7 @@
-'use client';
+"use client";
 
-import { StitchRenderer } from "@/components/StitchRenderer";
-import { html, bodyClass } from "@/content/screens/passport-share";
+import { ShareView } from "@/components/passport/ShareView";
 
-export default function Page() {
-  return <StitchRenderer html={html} bodyClass={bodyClass} shell="passport" />;
+export default function PassportSharePage() {
+  return <ShareView />;
 }

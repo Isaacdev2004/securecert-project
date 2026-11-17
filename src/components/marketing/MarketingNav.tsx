@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Icon } from "@/components/marketing/Icon";
+import { BrandLogo } from "@/components/BrandLogo";
 
 const LINKS = [
   { href: "/architecture", label: "Platform" },
@@ -27,13 +28,8 @@ export function MarketingNav() {
       </Link>
 
       <div className="mx-auto max-w-[1200px] px-5 md:px-8 h-[72px] flex items-center justify-between gap-4">
-        <Link href="/" className="flex items-center gap-2.5 shrink-0">
-          <span className="h-9 w-9 rounded-lg bg-[#0f766e] text-white flex items-center justify-center">
-            <Icon name="verified" size={20} filled weight={600} />
-          </span>
-          <span className="text-[1.25rem] font-extrabold tracking-tight text-gray-950">
-            SecureCert
-          </span>
+        <Link href="/" className="flex items-center shrink-0" aria-label="SecureCert home">
+          <BrandLogo height={36} />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1">

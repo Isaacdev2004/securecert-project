@@ -1,8 +1,7 @@
-'use client';
+"use client";
 
-import { StitchRenderer } from "@/components/StitchRenderer";
-import { html, bodyClass } from "@/content/screens/passport-credential";
+import { CredentialView } from "@/components/passport/CredentialView";
 
-export default function Page() {
-  return <StitchRenderer html={html} bodyClass={bodyClass} shell="passport" />;
+export default function PassportCredentialPage() {
+  return <CredentialView />;
 }

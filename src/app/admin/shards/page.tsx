@@ -1,8 +1,7 @@
-'use client';
+"use client";
 
-import { StitchRenderer } from "@/components/StitchRenderer";
-import { html, bodyClass } from "@/content/screens/admin-shards";
+import { ShardsView } from "@/components/admin/ShardsView";
 
 export default function Page() {
-  return <StitchRenderer html={html} bodyClass={bodyClass} shell="admin" />;
+  return <ShardsView />;
 }

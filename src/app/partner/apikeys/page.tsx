@@ -1,8 +1,12 @@
-'use client';
+"use client";
 
-import { StitchRenderer } from "@/components/StitchRenderer";
-import { html, bodyClass } from "@/content/screens/partner-apikeys";
+import { Suspense } from "react";
+import { ApiKeysView } from "@/components/partner/ApiKeysView";
 
 export default function Page() {
-  return <StitchRenderer html={html} bodyClass={bodyClass} shell="partner" />;
+  return (
+    <Suspense fallback={<div className="pt-24 px-6">Loading…</div>}>
+      <ApiKeysView />
+    </Suspense>
+  );
 }
